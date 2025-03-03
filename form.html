@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulari IMV</title>
+
+    <style>
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+        }
+
+        form {
+            max-width: 600px;
+            background: rgb(237, 237, 237);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+
+        fieldset {
+            border: 1px solid #b52626;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .hidden { display: none; }
+    </style>
+
+    <script>
+
+        function mostrarUnidadConvivencia() {
+            let unidad = document.getElementById("tipo_ayuda").value;
+            document.getElementById("convivientes").classList.toggle("hidden", unidad !== "convivencia");
+        }
+
+        function mostrarPregunta1618() {
+            document.getElementById("pregunta_adicional").style.display = "block";
+        }
+
+        function ocultarPregunta1618() {
+            document.getElementById("pregunta_adicional").style.display = "none";
+        }
+
+        function manejarPreguntas() {
+            let edad = document.getElementById("edad").value;
+            let tipoAyuda = document.getElementById("tipo_ayuda").value;
+            let preguntaIndependencia = document.getElementById("pregunta_independencia");
+            let textoPregunta = document.getElementById("texto_pregunta");
+            let preguntasUnidad = document.getElementById("convivientes");
+            let estadoCivil = document.getElementById("estado_civil").value;
+            let fechaMatrimonio = document.getElementById("fecha_matrimonio");
+            let esMujer = document.getElementById("genero_mujer").checked;
+            let violenciaGeneroPregunta = document.getElementById("violencia_genero_pregunta");
+            let trataPersona = document.getElementById("trata_personas_pregunta");
+            let motivosParentescoBi = document.getElementById("motivos_parentesco_bi");
+            let parentescoSi = document.getElementById("parentesco_si");
+            let seisMesesOK = document.getElementById("seis_meses");
+            let ucNo = document.getElementById("no6").checked;
+           
+            // Ocultar las preguntas específicas de edad al inicio
+            document.getElementById("preguntas_16_18").classList.add("hidden");
+            document.getElementById("preguntas_18_23").classList.add("hidden");
+            preguntaIndependencia.classList.add("hidden");
+
+            // Mostrar preguntas según la edad
+            if (edad >= 16 && edad < 18) {
+                document.getElementById("preguntas_16_18").classList.remove("hidden");
+            } else if (edad >= 18 && edad < 23) {
+                document.getElementById("preguntas_18_23").classList.remove("hidden");
+            }
+
+         
+            // Mostrar desplegable para añadir convivientes en caso de "clicar" Unidad de Convivencia
+            if (tipoAyuda === "convivencia") {
+                preguntasUnidad.classList.remove("hidden");
+                preguntaIndependencia.classList.add("hidden");
+                preguntaIndependencia.style.display = "none";
+            } else {
+                preguntasUnidad.classList.add("hidden");
+            }
+
+            // Mostrar preguntas específicas sobre la UC no constituida almenos 6 meses
+            if (ucNo) {
+                seisMesesOK.classList.remove("hidden");
+            } else {
+                seisMesesOK.classList.add("hidden");
+            }
+
+            // Mostrar fecha de boda en caso de clicar "Casado"
+            if (estadoCivil === "casado") {
+                fechaMatrimonio.classList.remove("hidden");
+            } else {
+                fechaMatrimonio.classList.add("hidden");
+            }
+
+            
+            // Mostrar la pregunta de VIDO solo si es mujer y la edad es mayor a 23, la de trata siempre que >23
+            if (esMujer && edad >= 23) {
+                violenciaGeneroPregunta.classList.remove("hidden");
+                trataPersona.classList.remove("hidden");
+            } else if (!esMujer && edad >= 23) {  
+                trataPersona.classList.remove("hidden");
+            } else {
+                violenciaGeneroPregunta.classList.add("hidden");
+                trataPersona.classList.add("hidden");
+            }
+
+            // Preguntas para BI en caso de coexistir personas CON vínculo en el domicilio
+            if (tipoAyuda === "unico" && parentescoSi.checked) {
+                motivosParentescoBi.classList.remove("hidden");
+            } else {
+                motivosParentescoBi.classList.add("hidden");
+            }
+        }
+
+        function manejarParentesco() {
+            let parentescoSi = document.getElementById("parentesco_si");
+            let tipoVivienda = document.getElementById("tipo_vivienda");
+            let tipoAyuda = document.getElementById("tipo_ayuda").value;
+            let motivosParentescoBi = document.getElementById("motivos_parentesco_bi");
+
+            if (parentescoSi.checked) {
+                tipoVivienda.classList.remove("hidden");
+
+                if (tipoAyuda === "unico") {
+                    motivosParentescoBi.classList.remove("hidden");
+                } else {
+                    motivosParentescoBi.classList.add("hidden");
+                }
+            } else {
+                tipoVivienda.classList.add("hidden");
+                motivosParentescoBi.classList.add("hidden");
+            }
+        }
+
+        function manejarNoParentesco() {
+            let tipoAyuda = document.getElementById("tipo_ayuda").value;
+            let parentescoNo = document.getElementById("no_parentesco");
+            let tipoVivienda = document.getElementById("tipo_vivienda");
+
+            if (tipoAyuda && parentescoNo) {
+                tipoVivienda.classList.remove("hidden");
+            } else {
+                tipoVivienda.classList.add("hidden");
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+    <h2>Formulari IMV</h2>
+    <form>
+        <label>DNI / NIE: <input type="text" name="dni" required></label><br>
+        <label>Nom: <input type="text" name="nombre" required></label><br>
+        <label>Cognoms: <input type="text" name="apellido" required></label><br>
+        <label>Nacionalitat: <input type="text" name="nacionalidad" required></label><br>
+        <label>Correu electrònic: <input type="email" name="email" required></label><br>
+        <label>Telèfon: <input type="tel" name="telefono" required></label><br>
+        <label><strong>Direcció: </strong><input type="text" name="direccion" required></label><br>
+        
+        <fieldset>
+            <legend>Gènere:</legend>
+            <label><input type="radio" id="genero_hombre" name="genero" value="hombre" onchange="manejarPreguntas()"> Home</label>
+            <label><input type="radio" id="genero_mujer" name="genero" value="mujer" onchange="manejarPreguntas()"> Dona</label>
+        </fieldset>
+        <br>
+
+        <label>Marqui la opció que correspongui:
+            <select id="estado_civil" name="estado_civil" onchange="manejarPreguntas()">
+                <option value="soltero">Solter/a</option>
+                <option value="casado">Casat/da (més de 2 anys)</option>
+                <option value="casado_hijos">Casat/da (més de 2 anys), amb fill/s comuns</option>
+                <option value="casado_hijos">Casat/da (més de 2 anys), amb fill/s NO comuns</option>
+                <option value="separado">Separat/da</option>
+                <option value="divorciado">Divorciat/a</option>
+                <option value="pareja">Parella de fet (més de dos anys)</option>
+                <option value="separado_hecho">Separat/da de fet</option>
+                <option value="tramite">Iniciant el tràmit de separació</option>
+                <option value="viudo">Viudo/a</option>
+            </select>
+        </label>
+
+        <div id="fecha_matrimonio" class="hidden">
+            <label for="fecha">Seleccioni la data de matrimoni:</label>
+            <input type="date" id="fecha_matrimonio_input" name="fecha">
+        </div><br>
+
+        <label><strong>Edat: </strong><input type="number" id="edad" name="edad" min="16" max="99" required onchange="manejarPreguntas()">
+        </label>
+
+        <div id="violencia_genero_pregunta" class="hidden">
+            <label>Es troba vosté en una situació de violència de gènere?
+                <select name="violencia_genero">
+                    <option value="no">No</option>
+                    <option value="si">Sí</option>  
+                </select>
+            </label>
+        </div>
+
+        <div id="trata_personas_pregunta" class="hidden">
+            <label>Es troba vosté en una situació de tracta d'éssers humans o explotació sexual?
+                <select name="trata_personas">
+                    <option value="no">No</option>
+                    <option value="si">Sí</option>  
+                </select>
+            </label>
+        </div>
+        
+        <div id="preguntas_16_18" class="hidden">
+            <label><strong>Te vosté la condició de menor emancipat?</strong></label>
+            <label>
+                <input type="radio" name="menor_emancipado" value="si" onchange="mostrarPregunta1618()"> Sí
+            </label>
+            <label>
+                <input type="radio" name="menor_emancipado" value="no" onchange="ocultarPregunta1618()"> No
+            </label>
+
+            <div id="pregunta_adicional" style="display: none; margin-top: 10px;">
+                <p><strong>Seleccioni una de las següents condicions:</strong></p>
+                <label>Es troba vosté en situació de violènncia de gènere? 
+                    <input type="checkbox" name="vido">
+                </label>
+                <label>Es troba vosté en situació de tracta d'éssers humans o explotació sexual?
+                    <input type="checkbox" name="trata_personas">
+                </label>
+                <label>Està vosté a càrrec d'un menor?
+                    <input type="checkbox" name="menor_cargo">
+                </label>
+            </div>
+        </div>
+
+        <div id="preguntas_18_23" class="hidden">
+            <p><strong>Seleccioni una de les sigüents condicions:</strong></p>
+            <label>
+                <input type="checkbox" name="condiciones[]" value="violencia_genero">
+                Es troba vosté en situació de violènncia de gènere?
+            </label>
+            <label>
+                <input type="checkbox" name="condiciones[]" value="trata_personas">
+                Es troba vosté en situació de tracta d'éssers humans o explotació sexual?
+            </label>
+            <label>
+                <input type="checkbox" name="condiciones[]" value="hijos">
+                Te fill/s o està vosté a càrrec d'un menor?
+            </label>
+            <label>
+                <input type="checkbox" name="condiciones[]" value="huerfanos">
+                Es troba vosté i/o la resta de convivients, en cas de conviure amb altres menors de 23 anys, en situació d'orfanesa absoluta?
+            </label>
+        </div><br>
+
+        <label>Marqui la opció que correspongui respecte el seu domicili habitual:
+            <select id="vivienda" name="vivienda">
+                <option value="piso">Domicili familiar d'ús exclusiu</option>
+                <option value="alquiler">Alquiler d'habitació</option>
+                <option value="compartida">Domicili compartit</option>
+                <option value="residencia_privada">Residència privada</option>
+                <option value="hotel">Habitació d'hotel</option>
+                <option value="infravivienda">Infravivenda (caravana, cova, tenda...)</option>
+                <option value="sin_hogar">Sensellarisme</option>
+            </select>
+        </label><br>
+
+        <!--
+            
+            WARNING!!!! (Explicar com funciona la unitat de convivència i qui és efectivament un Beneficiari Individual).
+            
+            WARNING!!!! En cas de tenir un membre de la UC a presó/hospital durant el darrer any, NO S'HA D'INCLOURE com a membre. 
+            -->
+
+        <label>És vosté l'únic beneficiari de la prestació o forma part d'una unitat de convivència?:
+            <select id="tipo_ayuda" name="tipo_ayuda" onchange="manejarPreguntas()">
+                <option value="" selected disabled>Seleccioni una opció...</option>
+                <option value="unico">Beneficiari Únic</option>
+                <option value="convivencia">Unitat de Convivència</option>
+            </select>
+        </label><br>
+        
+        <div id="pregunta_independencia" class="hidden">
+            <label id="texto_pregunta"></label><br>
+            <label><input type="date" id="fecha_independencia"></label>
+        </div>
+        
+        <div id="convivientes" class="hidden">
+            <p><strong>Afageixi els convivents de la seva unitat de convivència així com els seus identificadors, la relació de parentiu i si es troba en alguna de les següents condicions:</strong></p>
+
+            <label>
+                Nom del convivent: <input type="text" name="nombre_conviviente_1"><br>
+                DNI / NIE: <input type="text" name="dni_conviviente_1"><br>
+                Relació: <input type="text" name="relacion_conviviente_1"><br>
+                Víctima de violència de gènere: <input type="checkbox" name="vido_1"><br>
+                Tracta d'éssers humans: <input type="checkbox" name="trata_1"><br>
+            </label><br><br>
+
+            <label>
+                Nom del convivent: <input type="text" name="nombre_conviviente_1"><br>
+                DNI / NIE: <input type="text" name="dni_conviviente_1"><br>
+                Relació: <input type="text" name="relacion_conviviente_1"><br>
+                Víctima de violència de gènere: <input type="checkbox" name="vido_1"><br>
+                Tracta d'éssers humans: <input type="checkbox" name="trata_1"><br>
+            </label><br><br>
+
+            <label>
+                Nom del convivent: <input type="text" name="nombre_conviviente_1"><br>
+                DNI / NIE: <input type="text" name="dni_conviviente_1"><br>
+                Relació: <input type="text" name="relacion_conviviente_1"><br>
+                Víctima de violència de gènere: <input type="checkbox" name="vido_1"><br>
+                Tracta d'éssers humans: <input type="checkbox" name="trata_1"><br>
+            </label><br><br>
+
+            <label>
+                Nom del convivent: <input type="text" name="nombre_conviviente_1"><br>
+                DNI / NIE: <input type="text" name="dni_conviviente_1"><br>
+                Relació: <input type="text" name="relacion_conviviente_1"><br>
+                Víctima de violència de gènere: <input type="checkbox" name="vido_1"><br>
+                Tracta d'éssers humans: <input type="checkbox" name="trata_1"><br>
+            </label><br><br>
+
+            <label>
+                Nom del convivent: <input type="text" name="nombre_conviviente_1"><br>
+                DNI / NIE: <input type="text" name="dni_conviviente_1"><br>
+                Relació: <input type="text" name="relacion_conviviente_1"><br>
+                Víctima de violència de gènere: <input type="checkbox" name="vido_1"><br>
+                Tracta d'éssers humans: <input type="checkbox" name="trata_1"><br>
+            </label><br><br>
+
+            <div id="uc_constituida" name="uc_constituida">
+            <label>La seva unitat de convivència dur constituida almenys 6 mesos?</label><br>
+                <label>
+                    <input type="radio" id="si6" name="tipo_vivienda" value="habitacion" onchange="manejarPreguntas()"> Si
+                </label><br>
+                <label>
+                    <input type="radio" id="no6" name="tipo_vivienda" value="hotel" onchange="manejarPreguntas()"> No
+                </label>
+            </div><br>
+        </div>
+
+        <div id="seis_meses" class="hidden">
+            <label>Marqui la opció que correspongui:</label><br><br>
+                <label>
+                    <input type="checkbox" name="situacion_exc" value="nacimiento"> Naixement o adopció d'un fill.
+                </label><br>
+                <label>
+                    <input type="checkbox" name="situacion_exc" value="reagrupacion"> Algun membre s'ha reagrupat durant els últims 6 mesos.
+                </label><br>
+                <label>
+                <label>
+                    <input type="checkbox" name="situacion_exc" value="vido"> Algún membre es troba en situacó de violència de gènere.
+                </label><br>
+                <label>
+                    <input type="checkbox" name="situacion_exc" value="trata_persona"> Algún membre es troba en situacó de tracta d'éssers humans.
+                </label><br>
+                <label>
+                    <input type="checkbox" name="situacion_exc" value="ninguna"> Cap correspon.
+                </label><br>
+        </div><br>
+   
+        <fieldset>
+            <legend>Informació adicional:</legend>
+            <label><input type="checkbox" id="prestacion_perm" name="otros" value="otra_prest">Soc beneficiari d'una prestació temporal de servei residencial, social, sanitari o sociosanitaria.</label><br>
+            <label><input type="checkbox" id="otro_domicilio" name="otros" value="otro_dom">Visc en un domicili diferent al que estic empadronat.</label><br>
+            <label><input type="checkbox" id="exclusion_social" name="otros" value="exclusion_social">Em trobo en risc d'exclusió social i disposo d'un informe de serveis socials.</label><br>
+        </fieldset>
+        <br>
+        
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
+
+
+
+
+
+<!--
+
+<label>¿Existen otras personas CON relación de parentesco viviendo en su domicilio?</label><br>
+        <label>
+            <input type="radio" id="parentesco_si" name="parentesco" value="si" onchange="manejarParentesco()"> Sí
+        </label><br>
+        <label>
+            <input type="radio" id="parentesco_no" name="parentesco" value="no" onchange="manejarParentesco()"> No
+        </label><br>
+        
+        <div id="tipo_vivienda" class="hidden">
+            <br><label>¿Tiene un contrato de habitación?</label><br>
+            <label>
+                <input type="radio" id="no_parentesco" name="sin_parentesco" value="si" onchange="manejarNoParentesco()"> Sí
+            </label><br>
+            <label>
+                <input type="radio" id="nada" name="sin_parentesco" value="no" onchange="manejarNoParentesco()"> No
+            </label><br>
+            <label>
+                <input type="radio" id="nada_informe" name="sin_parentesco" value="no_informe" onchange="manejarNoParentesco()"> No, dispongo de un informe social
+            </label><br>
+        </div>
+
+        <div id="motivos_parentesco_bi" class="hidden">
+            <p>Seleccione la opción que aplique:</p>
+            <label><input type="checkbox" name="motivo_parentesco_bi" value="violencia"> Violencia de género</label><br>
+            <label><input type="checkbox" name="motivo_parentesco_bi" value="deshaucio"> Desahuciado/a</label><br>
+            <label><input type="checkbox" name="motivo_parentesco_bi" value="divorcio"> Inicio trámite divorcio</label><br>
+        </div><br>
+
+        <label>¿Existen otras personas SIN relación de parentesco viviendo en su domicilio?</label><br>
+        <label>
+            <input type="radio" id="no_parentesco" name="no_parentesco" value="si" onchange="manejarNoParentesco()"> Sí
+        </label><br>
+        <label>
+            <input type="radio" id="nada" name="no_parentesco" value="no"> No
+        </label><br><br>
+
+-->

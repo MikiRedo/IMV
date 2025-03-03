@@ -1,0 +1,59 @@
+*quan es pregunta Relació de cada membre de la UC, millor fer desplegable amb: (hijo, madre, hermano, abuelo, ...) Si posa el tipus = Guarda o acolliment dels menors, preguntar --> (règim de guarda amb finalitats d’adopció, règim d’acolliment familiar permanent, custòdia compartida, custòdia exclusiva).
+
+(em fa pal, ja ho farà DXT)
+
+
+**Al checkejar els 6 mesos de convivència de la UC, poden apareixer casos com persona retornada per estudis, presó, hospital. Com pregunto?
+**Alguno de los miembros de la UC se encuentra fuera de su domicilio por estudios, hospitalizado?? Despres de posar UC??
+
+
+
+BENEFICIARI INDIVIDUAL
+
+    - Altres persones al domicili SENSE relació:
+
+        1: Empadronada en un domicili fictici??
+        2: Empadronada en serveis socials??
+        3: ???
+        ***on aniria la pregunta de risc d'exclusió social?
+
+    - Altres persones al domicili AMB relació (mateixos que UC):
+
+        1: Persona en situació de VIDO
+        2: Inici tràmit de sepració
+        3: Haber abandonat el seu domicili per desnonament o accident de força major
+
+
+UNITAT DE CONVIVENCIA (IOPs)
+
+    - Altres persones al domicili SENSE relació:
+
+        1: Empadronada en un domicili fictici??
+        2: Empadronada en serveis socials??
+        3: 
+
+    - Altres persones al domicili AMB relació (mateixos que BI):
+
+        1: Dona en situació de VIDO amb fills a càrrec
+        2: Es troba en situació d'inici del tràmit de separació
+        3: Inici tràmits de guàrdia i custòdia
+
+
+
+si esta viudo, no pot haver un coyugue al grau de parentiu
+si esta separada, no pot haver un conyugue al grau de parentiu
+etc...
+Com ho pinto..?
+
+
+
+**caldrà mirar el tema dels "checkbox" d'acreditar/no acreditar pels funcionaris**
+
+**Preveure bé el tipo de domicili** --> habitació llogada 
+
+***afegir pregunta de nacionalitzat en cas que el DNI tingui -6 mesos antiguitat. Ja contemplat al tSocial*** No resolt en reunions
+**Preguntar anteriorment tenien NIE en cas que el DNI tingui menys de 6 mesos d'antiguetat??** No està resolt
+**en totes les VIDO preguntem si han abandonat el seu domicili actual**
+
+**afegir els "pop-ups" informatius ("i") per explicar UC i BI, així com documentació de VIDO etc**
+
