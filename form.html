@@ -79,7 +79,7 @@
     </style>
 
     <script>
-
+        
         function mostrarUnidadConvivencia() {
             let unidad = document.getElementById("tipo_ayuda").value;
             document.getElementById("convivientes").classList.toggle("hidden", unidad !== "convivencia");
@@ -198,8 +198,8 @@
         }
 
     </script>
-
 </head>
+
 <body>
     <h2>Formulari IMV</h2>
     <form>
@@ -381,28 +381,21 @@
             <label>La seva unitat de convivència dur constituida almenys 6 mesos?</label><br>
                 <label>
                     <input type="radio" id="si6" name="tipo_vivienda" value="habitacion" onchange="manejarPreguntas()"> Si
-                </label><br>
+                </label>
                 <label>
                     <input type="radio" id="no6" name="tipo_vivienda" value="hotel" onchange="manejarPreguntas()"> No
                 </label>
-            </div><br>
+            </div>
         </div>
 
         <div id="seis_meses" class="hidden">
-            <label>Marqui la opció que correspongui:</label><br><br>
+            <label>Marqui la opció que correspongui:</label><br>
                 <label>
                     <input type="checkbox" name="situacion_exc" value="nacimiento"> Naixement o adopció d'un fill.
-                </label><br>
+                </label>
                 <label>
                     <input type="checkbox" name="situacion_exc" value="reagrupacion"> Algun membre s'ha reagrupat durant els últims 6 mesos.
-                </label><br>
-                <label>
-                <label>
-                    <input type="checkbox" name="situacion_exc" value="vido"> Algún membre es troba en situacó de violència de gènere.
-                </label><br>
-                <label>
-                    <input type="checkbox" name="situacion_exc" value="trata_persona"> Algún membre es troba en situacó de tracta d'éssers humans.
-                </label><br>
+                </label>
                 <label>
                     <input type="checkbox" name="situacion_exc" value="ninguna"> Cap correspon.
                 </label><br>
