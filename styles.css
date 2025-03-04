@@ -67,4 +67,36 @@ button:hover {
     background-color: #0056b3;
 }
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    color: rgb(255, 0, 0); 
+    font-size: 14px;
+  }
+  
+  .tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px; /* Ajusta el tamaño del recuadro si es necesario */
+    background-color: white;
+    color: black;
+    text-align: left;
+    padding: 5px;
+    border: 1px solid black; /* Borde del recuadro */
+    border-radius: 4px;
+  
+    /* Posicionamiento */
+    position: absolute;
+    top: -35px; /* Mueve el texto arriba */
+    left: 20px; /* Mueve el texto a la derecha */
+    z-index: 10;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+  }
+  
+  .tooltip:hover .tooltip-text {
+    visibility: visible;
+  }
+  
+
 .hidden { display: none; }
