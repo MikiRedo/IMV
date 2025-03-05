@@ -208,15 +208,18 @@
 
             <div id="pregunta_adicional" style="display: none; margin-top: 10px;">
                 <p><strong>Seleccioni una de las següents condicions:</strong></p>
-                <label>Es troba vosté en situació de violènncia de gènere? 
+                <label>
                     <input type="checkbox" name="vido">
+                    Es troba vosté en situació de violènncia de gènere? 
                 </label>
-                <label>Es troba vosté en situació de tracta d'éssers humans o explotació sexual?
+                <label>
                     <input type="checkbox" name="trata_personas">
+                    Es troba vosté en situació de tracta d'éssers humans o explotació sexual?
                 </label>
-                <label>Està vosté a càrrec d'un menor?
+                <label>
                     <input type="checkbox" name="menor_cargo">
-                </label>
+                    Està vosté a càrrec d'un menor?
+                </label>                
             </div>
         </div>
 
@@ -235,6 +238,14 @@
                 Te fill/s o està vosté a càrrec d'un menor?
             </label>
             <label>
+                <input type="checkbox" name="condiciones[]" value="penitenciario">
+                Ha estat ingressat en un centre penitenciari els últims 6 mesos?
+            </label>
+            <label>
+                <input type="checkbox" name="condiciones[]" value="menas">
+                Ha estat sota la tutela d'un centre públic de protecció de menors dins els 3 anys anterirors a cumplir la majoria d'edat?
+            </label>
+            <label>
                 <input type="checkbox" name="condiciones[]" value="huerfanos">
                 Es troba vosté i/o la resta de convivients, en cas de conviure amb altres menors de 23 anys, en situació d'orfanesa absoluta?
             </label>
@@ -248,8 +259,8 @@
                 <option value="alquiler">Alquiler d'habitació</option>
                 <option value="compartida">Domicili compartit</option>
                 <option value="residencia_privada">Residència privada</option>
-                <option value="hotel">Habitació d'hotel</option>
-                <option value="infravivienda">Infravivenda (caravana, cova, tenda...)</option>
+                <option value="hotel">Pensió o habitació d'hotel</option>
+                <option value="infravivienda">Infravivenda (caravana, cova, tenda, cotxe...)</option>
                 <option value="sin_hogar">Sensellarisme</option>
             </select>
         </label><br>
