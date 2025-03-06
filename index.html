@@ -155,6 +155,16 @@
         <label>Nacionalitat: <input type="text" name="nacionalidad" required></label><br>
         <label>Correu electrònic: <input type="email" name="email" required></label><br>
         <label>Telèfon: <input type="tel" name="telefono" required></label><br>
+        <label>Número de compte corrent:
+        <span class="tooltip">ℹ
+            <span class="tooltip-text">
+                <ul>
+                    <li>El compte bancari ha de romandre a una Entitat financera col·laborada amb la Seguretat Social. Pot consultar les entitats financeres col·laboradores a: http://run.gob.es/EntidadesFinancieras </li>
+                    <li>El titular del compte haurà de ser en tot cas el sol·licitant de la prestació, encara que necessiti mesures de suport judicials.</li> 
+                </ul>
+            </span>
+        </span>    
+            <input type="text" name="compte" required></label><br>
         <label><strong>Direcció: </strong><input type="text" name="direccion" required></label><br>
         
         <fieldset>
@@ -168,18 +178,18 @@
             <span class="tooltip">ℹ
                 <span class="tooltip-text">
                     <label>
-                        Recordi que Perquè la parella de fet sigui considerada vàlida s'ha hagut de formalitzar des de fa almenys dos anys quan no tinguin fills/es comuns. Si tenen fills/es comuns no es necessita formalització. 
+                        Recordi que perquè el matrimoni o la parella de fet sigui considerada vàlida s'ha hagut de formalitzar des de fa almenys dos anys quan no tinguin fills/es comuns. Si tenen fills/es comuns no es necessita formalització. 
                     </label>
                 </span>
             </span><br>
             <select id="estado_civil" name="estado_civil" onchange="manejarPreguntas()">
                 <option value="soltero">Solter/a</option>
-                <option value="casado">Casat/da (més de 2 anys)</option>
-                <option value="casado_hijos">Casat/da (més de 2 anys), amb fill/s comuns</option>
-                <option value="casado_hijos">Casat/da (més de 2 anys), amb fill/s NO comuns</option>
+                <option value="casado">Casat/da</option>
+                <option value="casado_hijos">Casat/da amb fill/s comuns</option>
+                <option value="casado_hijos">Casat/da amb fill/s NO comuns</option>
                 <option value="separado">Separat/da</option>
                 <option value="divorciado">Divorciat/a</option>
-                <option value="pareja">Parella de fet (més de dos anys)</option>
+                <option value="pareja">Parella de fet</option>
                 <option value="separado_hecho">Separat/da de fet</option>
                 <option value="tramite">Iniciant el tràmit de separació</option>
                 <option value="viudo">Vidu/a</option>
@@ -396,6 +406,8 @@
             </div><br>
         </fieldset>
         <br>
+
+
         
         <button type="submit">Enviar</button>
     </form>
