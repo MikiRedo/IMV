@@ -141,7 +141,15 @@
 <body>
     <h2>Formulari IMV</h2>
     <form>
-        <label>DNI / NIE: <input type="text" name="dni" required></label><br>
+        <label>DNI / NIE: 
+        <span class="tooltip">ℹ
+            <span class="tooltip-text">
+                <label>
+                    Recordi que el DNI/NIE ha d'estar en vigor. Sense el DNI/NIE en vigor no es podrà resoldre la seva sol·licitud.
+                </label>
+            </span>
+        </span>
+            <input type="text" name="dni" required></label><br>
         <label>Nom: <input type="text" name="nombre" required></label><br>
         <label>Cognoms: <input type="text" name="apellido" required></label><br>
         <label>Nacionalitat: <input type="text" name="nacionalidad" required></label><br>
@@ -157,6 +165,13 @@
         <br>
 
         <label>Marqui la opció que correspongui:
+            <span class="tooltip">ℹ
+                <span class="tooltip-text">
+                    <label>
+                        Recordi que Perquè la parella de fet sigui considerada vàlida s'ha hagut de formalitzar des de fa almenys dos anys quan no tinguin fills/es comuns. Si tenen fills/es comuns no es necessita formalització. 
+                    </label>
+                </span>
+            </span><br>
             <select id="estado_civil" name="estado_civil" onchange="manejarPreguntas()">
                 <option value="soltero">Solter/a</option>
                 <option value="casado">Casat/da (més de 2 anys)</option>
@@ -239,7 +254,7 @@
             </label>
             <label>
                 <input type="checkbox" name="condiciones[]" value="penitenciario">
-                Ha estat ingressat en un centre penitenciari els últims 6 mesos?
+                Ha estat ingressat "recentment" en un centre penitenciari durant almenys 6 mesos?
             </label>
             <label>
                 <input type="checkbox" name="condiciones[]" value="menas">
@@ -247,7 +262,7 @@
             </label>
             <label>
                 <input type="checkbox" name="condiciones[]" value="huerfanos">
-                Es troba vosté i/o la resta de convivients, en cas de conviure amb altres menors de 23 anys, en situació d'orfanesa absoluta?
+                Es troba vosté en situació d'orfanesa absoluta?
             </label>
         </div><br>
 
@@ -274,14 +289,14 @@
 
         <label>És vosté l'únic beneficiari de la prestació o forma part d'una unitat de convivència?:
             <span class="tooltip">ℹ
-    <span class="tooltip-text">
-        <ul>
-            <li>S'entendrà com a beneficiari individual una persona que no conviu amb cap membre amb relació de parentiu i demana la prestació exclusivament per al seu propi benefici.</li>
-            <li>Entenem per unitat de conviència totes aquelles persones amb vincle de fins a segon grau que convieu en un mateix domicili.</li>
-            <li>En cas de tenir un membre a presó o en un centre hospitalari permanent, no afegir-lo com a convivent.</li>
-        </ul>
-    </span>
-</span>
+            <span class="tooltip-text">
+                <ul>
+                    <li>S'entendrà com a beneficiari individual una persona que no conviu amb cap membre amb relació de parentiu i demana la prestació exclusivament per al seu propi benefici.</li>
+                    <li>Entenem per unitat de conviència totes aquelles persones amb vincle de fins a segon grau que convieu en un mateix domicili.</li>
+                    <li>En cas de tenir un membre a presó o en un centre hospitalari permanent, no afegir-lo com a convivent.</li>
+                </ul>
+            </span>
+            </span>
             <select id="tipo_ayuda" name="tipo_ayuda" onchange="manejarPreguntas()">
                 <option value="" selected disabled>Seleccioni una opció...</option>
                 <option value="unico">Beneficiari Únic</option>
