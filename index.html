@@ -38,6 +38,8 @@
             let ucNo = document.getElementById("no6").checked;
             let prision = document.getElementById("preso").checked;
             let fechaIngreso = document.getElementById("fecha_ingreso");
+            let orfandadCheckbox = document.querySelector('input[value="huerfanos"]');
+            let orfanesaInfo = document.getElementById("orfanesa_info");
 
             
            
@@ -61,6 +63,13 @@
                 preguntaIndependencia.style.display = "none";
             } else {
                 preguntasUnidad.classList.add("hidden");
+            }
+
+            // Mostrar u ocultar la sección según el estado del checkbox
+            if (orfandadCheckbox.checked) {
+                orfanesaInfo.classList.remove("hidden");
+            } else {
+                orfanesaInfo.classList.add("hidden");
             }
 
             // Mostrar preguntas específicas sobre la UC no constituida almenos 6 meses
@@ -159,7 +168,7 @@
         <span class="tooltip">ℹ
             <span class="tooltip-text">
                 <ul>
-                    <li>El compte bancari ha de romandre a una Entitat financera col·laborada amb la Seguretat Social. Pot consultar les entitats financeres col·laboradores a: http://run.gob.es/EntidadesFinancieras </li>
+                    <li>El compte bancari ha de romandre a una entitat financera col·laborada amb la Seguretat Social. Pot consultar les entitats financeres col·laboradores a: http://run.gob.es/EntidadesFinancieras </li>
                     <li>El titular del compte haurà de ser en tot cas el sol·licitant de la prestació, encara que necessiti mesures de suport judicials.</li> 
                 </ul>
             </span>
@@ -191,7 +200,7 @@
                 <option value="divorciado">Divorciat/a</option>
                 <option value="pareja">Parella de fet</option>
                 <option value="separado_hecho">Separat/da de fet</option>
-                <option value="tramite">Iniciant el tràmit de separació</option>
+                <option value="tramite">Iniciant el tràmit de separació*</option>
                 <option value="viudo">Vidu/a</option>
             </select>
         </label>
@@ -274,7 +283,18 @@
             <p><strong>Seleccioni una de les sigüents condicions:</strong></p>
             <label>
                 <input type="checkbox" name="condiciones[]" value="violencia_genero">
-                Es troba vosté en situació de violènncia de gènere?
+                Es troba vosté en situació de violència de gènere?
+                <span class="tooltip">ℹ
+                    <span class="tooltip-text">
+                        Per acreditar aquesta condició cal que aporti algun els següents documents: <br>
+                        <ul>
+                            <li>Sentència condemnatòria per delicte de violència de gènere.</li>
+                            <li>Ordre de protecció o resolució judicial .</li>
+                            <li>Informe del ministeri fiscal .</li>
+                            <li>Informe dels serveis socials, dels serveis especialitzats o dels serveis d'acollida. </li>
+                        </ul>
+                    </span>
+                </span>
             </label>
             <label>
                 <input type="checkbox" name="condiciones[]" value="trata_personas">
@@ -293,9 +313,25 @@
                 Ha estat sota la tutela d'un centre públic de protecció de menors dins els 3 anys anterirors a cumplir la majoria d'edat?
             </label>
             <label>
-                <input type="checkbox" name="condiciones[]" value="huerfanos">
+                <input type="checkbox" name="condiciones[]" value="huerfanos" onchange="manejarPreguntas()">
                 Es troba vosté en situació d'orfanesa absoluta?
+                <span class="tooltip">ℹ
+                    <span class="tooltip-text">
+                        En cas de no poder indicar la identificació dels progenitors, se li requerirà el certificat de defunció d'aquests.
+                </span>
             </label>
+            
+            <div id="orfanesa_info" class="hidden">
+                <h4>Informació sobre els progenitors</h4>
+                <label>Nom del pare: <input type="text" name="nombre_padre"></label><br>
+                <label>Cognom del pare: <input type="text" name="apellido_padre"></label><br>
+                <label>DNI del pare: <input type="text" name="dni_padre"></label><br><br>
+
+                <label>Nom de la mare: <input type="text" name="nombre_madre"></label><br>
+                <label>Cognom de la mare: <input type="text" name="apellido_madre"></label><br>
+                <label>DNI de la mare: <input type="text" name="dni_madre"></label><br><br>
+            </div>
+
         </div><br>
 
         <!--Demanar el dni dels progenitors en cas que cliqui sí!-->
