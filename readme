@@ -27,37 +27,6 @@ Altres
 
 
 
-BENEFICIARI INDIVIDUAL
-
-    - Altres persones al domicili SENSE relació:
-
-        1: Empadronada en un domicili fictici??
-        2: Empadronada en serveis socials??
-        3: ???
-        ***on aniria la pregunta de risc d'exclusió social?
-
-    - Altres persones al domicili AMB relació (mateixos que UC):
-
-        1: Persona en situació de VIDO
-        2: Inici tràmit de sepració
-        3: Haber abandonat el seu domicili per desnonament o accident de força major
-
-
-UNITAT DE CONVIVENCIA (IOPs)
-
-    - Altres persones al domicili SENSE relació:
-
-        1: Empadronada en un domicili fictici??
-        2: Empadronada en serveis socials??
-        3: 
-
-    - Altres persones al domicili AMB relació (mateixos que BI):
-
-        1: Dona en situació de VIDO amb fills a càrrec
-        2: Es troba en situació d'inici del tràmit de separació
-        3: Inici tràmits de guàrdia i custòdia
-
-
 
 si esta viudo, no pot haver un coyugue al grau de parentiu
 si esta separada, no pot haver un conyugue al grau de parentiu
@@ -76,3 +45,4 @@ Com ho pinto..?
 **pop-up per explciar sensellarisme**
 **afegir pregunta de data defunció i mirar tema si poden posar passaport o no**
 **mirar els NIE que a sol·licitud estan prop de caducar per poder detectar en cas que perdin la residència legal**
+**tutela: si cliquen despleguem dues preguntes--> (checkbox) si és a Catalunya, ok (DGAIA). si es fora Catalunya (EspaÑa),es requerirà el document (però no preguntem res més)**
