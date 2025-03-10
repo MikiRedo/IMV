@@ -40,6 +40,9 @@
             let fechaIngreso = document.getElementById("fecha_ingreso");
             let orfandadCheckbox = document.querySelector('input[value="huerfanos"]');
             let orfanesaInfo = document.getElementById("orfanesa_info");
+            let tutelaMenors = document.querySelector('input[value="menas"]');
+            let tutelaShow = document.getElementById("tutela_menor");
+
 
            
             // Ocultar las preguntas específicas de edad al inicio
@@ -61,6 +64,12 @@
                 preguntaIndependencia.style.display = "none";
             } else {
                 preguntasUnidad.classList.add("hidden");
+            }
+
+            if (tutelaMenors.checked) {
+                tutelaShow.classList.remove("hidden");
+            } else {
+                tutelaShow.classList.add("hidden");
             }
 
             // Mostrar u ocultar la sección según el estado del checkbox
@@ -307,9 +316,18 @@
                 Ha estat ingressat "recentment" en un centre penitenciari durant almenys 6 mesos?
             </label>
             <label>
-                <input type="checkbox" name="condiciones[]" value="menas">
+                <input type="checkbox" name="condiciones[]" value="menas" onchange="manejarPreguntas()">
                 Ha estat sota la tutela d'un centre públic de protecció de menors dins els 3 anys anterirors a cumplir la majoria d'edat?
             </label>
+            <div id="tutela_menor" class="hidden">
+                <label>Ha estat en un centre dins la comunitat de Catalunya?
+                    <select name="tutela_menorss">
+                        <option value="no">No</option>
+                        <option value="si">Sí</option>  
+                    </select>
+                </label>
+
+            </div>
             <label>
                 <input type="checkbox" name="condiciones[]" value="huerfanos" onchange="manejarPreguntas()">
                 Es troba vosté en situació d'orfanesa absoluta?
