@@ -294,7 +294,7 @@
                 Es troba vosté en situació de violència de gènere?
                 <span class="tooltip">ℹ
                     <span class="tooltip-text">
-                        Per acreditar aquesta condició cal que aporti algun els següents documents: <br>
+                        Per acreditar aquesta condició cal que aporti algun dels següents documents: <br>
                         <ul>
                             <li>Sentència condemnatòria per delicte de violència de gènere.</li>
                             <li>Ordre de protecció o resolució judicial .</li>
@@ -399,8 +399,16 @@
 
             <label>
                 Nom del convivent: <input type="text" name="nombre_conviviente_1"><br>
-                DNI / NIE: <input type="text" name="dni_conviviente_1"><br>
-                Relació: <input type="text" name="relacion_conviviente_1"><br>
+                DNI / NIE: <input type="text" name="dni_conviviente_1"><br><br>
+                Relació: <select id="relacion" name="relacion">
+                    <option value="conjugue">Cònjugue</option>
+                    <option value="parella">Parella</option>
+                    <option value="fill">Fill/a</option>
+                    <option value="paremare">Pare o mare</option>
+                    <option value="fpolitic">Fill/a polític</option>
+                    <option value="noragendre">Nora o gendre</option>
+                    <option value="sogre">Sogre o sogra</option>
+                </select><br><br>
                 Víctima de violència de gènere: <input type="checkbox" name="vido_1"><br>
                 Tracta d'éssers humans: <input type="checkbox" name="trata_1"><br>
             </label><br><br>
