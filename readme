@@ -1,7 +1,7 @@
-*quan es pregunta Relació de cada membre de la UC, millor fer desplegable amb: (hijo, madre, hermano, abuelo, ...) Si posa el tipus = Guarda o acolliment dels menors, preguntar --> (règim de guarda amb finalitats d’adopció, règim d’acolliment familiar permanent, custòdia compartida, custòdia exclusiva).
+Quan es pregunta Relació de cada membre de la UC si posa el tipus = fill, Guarda o acolliment dels menors, preguntar 
+--> (règim de guarda amb finalitats d'adopció, règim d'acolliment familiar permanent, custòdia compartida, custòdia exclusiva, tràmits de guàrdia i custòdia).
 
-**Alguno de los miembros de la UC se encuentra fuera de su domicilio por estudios, hospitalizado?? Despres de posar UC??
-
+**Alguno de los miembros de la UC se encuentra fuera de su domicilio por estudios, hospitalizado?? Despres de posar UC??**
 
 si esta viudo, no pot haver un coyugue al grau de parentiu
 si esta separada, no pot haver un conyugue al grau de parentiu
@@ -12,7 +12,7 @@ Com ho pinto..?
 
 **caldrà mirar el tema dels "checkbox" d'acreditar/no acreditar pels funcionaris**
 
-**Preveure bé el tipo de domicili** --> habitació llogada 
+**Preveure bé el tipo de domicili --> habitació llogada**
 
 ***afegir pregunta de nacionalitzat en cas que el DNI tingui -6 mesos antiguitat. Ja contemplat al tSocial***
 **Preguntar anteriorment tenien NIE en cas que el DNI tingui menys de 6 mesos d'antiguetat??** No està resolt
