@@ -380,7 +380,7 @@
                     </span>
                 </span>
             </label>
-            <label><input type="checkbox" id="preso" name="otros" value="preso" onchange="manejarPreguntas()">Algun dels membres de la seva unitat familiar, no inclòs en la sol·licitud, està ingressat en un centre penitenciari o hospitalari.</label>
+            <label><input type="checkbox" id="preso" name="otros" value="preso" onchange="manejarPreguntas()">Algun dels membres de la seva unitat familiar, no inclòs en la sol·licitud, està ingressat permanentment en un centre penitenciari o hospitalari.</label>
         
             <div id="fecha_ingreso" class="hidden">
                 <label for="fecha_ingreso_input">Seleccioni la data d'ingrés:</label>
@@ -417,7 +417,7 @@
         </div>
         
         <div id="convivientes" class="hidden">
-            <p><strong>Afageixi els convivents de la seva unitat de convivència així com els seus identificadors, la relació de parentiu i si es troba en alguna de les següents condicions:</strong></p>
+            <p><strong>Afageixi els convivents de la seva unitat de convivència així com els seus identificadors, edat, la relació de parentiu i si es troba en alguna de les següents condicions:</strong></p>
 
             <label>
                 Nom del convivent: <input type="text" name="nombre_conviviente_1"><br>
@@ -583,7 +583,7 @@
                     <input type="radio" id="no6" name="tipo_vivienda" value="hotel" onchange="manejarPreguntas()"> No
                 </label>
             </div>
-        </div>
+        </div><br>
 
         <div id="seis_meses" class="hidden">
             <label>Marqui la opció que correspongui:</label><br>
@@ -600,9 +600,20 @@
                 </label>
                 <label>
                     <input type="checkbox" name="situacion_exc" value="ninguna"> Cap correspon.
-                </label><br>
-        </div><br>
+                </label>
+        </div>
 
+        <label>
+            <input type="checkbox" name="firma">Firma del sol·licitant.
+            <span class="tooltip">ℹ
+                <span class="tooltip-text">
+                    <label>
+                        Amb la firma de la sol·licitud declara, sota la seva responsabilitat, que tots els integrants de la unitat de convivència majors d'edat atorguen el seu consentiment per a la presentació d'aquesta sol·licitud de l'ingrés mínim vital  
+                    </label>
+                </span>
+            </span><br>
+        </label><br>
+       
 
 
         <button type="submit">Enviar</button>
