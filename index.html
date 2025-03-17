@@ -43,8 +43,7 @@
             let tutelaMenors = document.querySelector('input[value="menas"]');
             let tutelaShow = document.getElementById("tutela_menor");
 
-
-           
+                   
             // Ocultar las preguntas específicas de edad al inicio
             document.getElementById("preguntas_16_18").classList.add("hidden");
             document.getElementById("preguntas_18_23").classList.add("hidden");
@@ -118,6 +117,27 @@
             } else {
                 motivosParentescoBi.classList.add("hidden");
             }
+
+        }
+            
+        function menorsUC(){
+            
+            let menorsUC = document.querySelectorAll(".edadUC");
+            let acogidaUC = document.getElementById("acogida_info");
+            let menorsDetectats = false;
+
+            menorsUC.forEach((input) => {
+                let edad = parseInt(input.value);
+                if (!isNaN(edad) && edad < 18) {
+                    menorsDetectats = true;
+                }
+                });
+
+                if (menorsDetectats) {
+                    acogidaUC.classList.remove("hidden");
+                } else {
+                    acogidaUC.classList.add("hidden");
+                }
         }
 
         function manejarParentesco() {
@@ -369,6 +389,7 @@
         <fieldset>
             <legend>Informació adicional:</legend>
             <label><input type="checkbox" id="mercantil" name="otros" value="mercantilo">Sóc administrador/a de dret d'una societat mercantil.</label>
+            <label><input type="checkbox" id="mercantil" name="otros" value="mercantilo">He estat d'alta en el Sistema especial d'empleats de la llar o en el Règim especial de treballadors autònoms en l'any anterior a la presentació d'aquesta sol·licitud.</label>
             <label><input type="checkbox" id="disca" name="otros" value="disca65">Té, vosté o algún dels membres de la seva unitat de convivència, una discapacitat +65% reconeguda fora de Catalunya?</label>
             <label><input type="checkbox" id="prestacion_perm" name="otros" value="otra_prest">Sóc beneficiari d'una prestació temporal de servei residencial, social, sanitari o sociosanitaria.</label>
             <label><input type="checkbox" id="otro_domicilio" name="otros" value="otro_dom">Visc en un domicili diferent al que estic empadronat.</label>
@@ -423,131 +444,7 @@
             <label>
                 Nom del convivent: <input type="text" name="nombre_conviviente_1"><br>
                 DNI / NIE: <input type="text" name="dni_conviviente_1"><br><br>
-                <label>Edat:<input type="number" id="edad" name="edad" min="16" max="99" required onchange="manejarPreguntas()">
-                </label><br>
-                Relació: <select id="relacion" name="relacion">
-                    <option value="" selected disabled>Seleccioni una opció...</option>
-                    <option value="conjugue">Cònjugue</option>
-                    <option value="parella">Parella</option>
-                    <option value="paremare">Pare o mare</option>
-                    <option value="fill">Fill/a</option>
-                    <option value="fpolitic">Fill/a polític</option>
-                    <option value="noragendre">Nora o gendre</option>
-                    <option value="sogre">Sogre o sogra</option>
-                    <option value="germans">Germà o germana</option>
-                    <option value="net">Net/a</option>
-                    <option value="cunyao">Cunyat o cunyada</option>
-                    <option value="nebot">Nebot o neboda</option>
-                    <option value="tiets">Tiet o tieta</option>
-                    <option value="besavis">Besavi o besàvia</option>
-                    <option value="besnets">Besnét o besnéta</option>
-                    <option value="cosins">Cosí o cosina</option>
-                    <option value="segons">Cosí/na segon</option>
-                    <option value="tsegons">Tiet/a segon</option>
-                    <option value="bestia">Besoncle o bestia</option>
-                    <option value="altres">Altres</option>
-                </select><br><br>
-                Víctima de violència de gènere: <input type="checkbox" name="vido_1"><br>
-                Tracta d'éssers humans: <input type="checkbox" name="trata_1"><br>
-            </label><br><br>
-
-            <label>
-                Nom del convivent: <input type="text" name="nombre_conviviente_1"><br>
-                DNI / NIE: <input type="text" name="dni_conviviente_1"><br>
-                <label>Edat:<input type="number" id="edad" name="edad" min="16" max="99" required onchange="manejarPreguntas()">
-                </label><br>
-                Relació: <select id="relacion" name="relacion">
-                    <option value="" selected disabled>Seleccioni una opció...</option>
-                    <option value="conjugue">Cònjugue</option>
-                    <option value="parella">Parella</option>
-                    <option value="paremare">Pare o mare</option>
-                    <option value="fill">Fill/a</option>
-                    <option value="fpolitic">Fill/a polític</option>
-                    <option value="noragendre">Nora o gendre</option>
-                    <option value="sogre">Sogre o sogra</option>
-                    <option value="germans">Germà o germana</option>
-                    <option value="net">Net/a</option>
-                    <option value="cunyao">Cunyat o cunyada</option>
-                    <option value="nebot">Nebot o neboda</option>
-                    <option value="tiets">Tiet o tieta</option>
-                    <option value="besavis">Besavi o besàvia</option>
-                    <option value="besnets">Besnét o besnéta</option>
-                    <option value="cosins">Cosí o cosina</option>
-                    <option value="segons">Cosí/na segon</option>
-                    <option value="tsegons">Tiet/a segon</option>
-                    <option value="bestia">Besoncle o bestia</option>
-                    <option value="altres">Altres</option>
-                </select><br><br>
-                Víctima de violència de gènere: <input type="checkbox" name="vido_1"><br>
-                Tracta d'éssers humans: <input type="checkbox" name="trata_1"><br>
-            </label><br><br>
-
-            <label>
-                Nom del convivent: <input type="text" name="nombre_conviviente_1"><br>
-                DNI / NIE: <input type="text" name="dni_conviviente_1"><br>
-                <label>Edat:<input type="number" id="edad" name="edad" min="16" max="99" required onchange="manejarPreguntas()">
-                </label><br>
-                Relació: <select id="relacion" name="relacion">
-                    <option value="" selected disabled>Seleccioni una opció...</option>
-                    <option value="conjugue">Cònjugue</option>
-                    <option value="parella">Parella</option>
-                    <option value="paremare">Pare o mare</option>
-                    <option value="fill">Fill/a</option>
-                    <option value="fpolitic">Fill/a polític</option>
-                    <option value="noragendre">Nora o gendre</option>
-                    <option value="sogre">Sogre o sogra</option>
-                    <option value="germans">Germà o germana</option>
-                    <option value="net">Net/a</option>
-                    <option value="cunyao">Cunyat o cunyada</option>
-                    <option value="nebot">Nebot o neboda</option>
-                    <option value="tiets">Tiet o tieta</option>
-                    <option value="besavis">Besavi o besàvia</option>
-                    <option value="besnets">Besnét o besnéta</option>
-                    <option value="cosins">Cosí o cosina</option>
-                    <option value="segons">Cosí/na segon</option>
-                    <option value="tsegons">Tiet/a segon</option>
-                    <option value="bestia">Besoncle o bestia</option>
-                    <option value="altres">Altres</option>
-                </select><br><br>
-                Víctima de violència de gènere: <input type="checkbox" name="vido_1"><br>
-                Tracta d'éssers humans: <input type="checkbox" name="trata_1"><br>
-            </label><br><br>
-
-            <label>
-                Nom del convivent: <input type="text" name="nombre_conviviente_1"><br>
-                DNI / NIE: <input type="text" name="dni_conviviente_1"><br>
-                <label>Edat:<input type="number" id="edad" name="edad" min="16" max="99" required onchange="manejarPreguntas()">
-                </label><br>
-                Relació: <select id="relacion" name="relacion">
-                    <option value="" selected disabled>Seleccioni una opció...</option>
-                    <option value="conjugue">Cònjugue</option>
-                    <option value="parella">Parella</option>
-                    <option value="paremare">Pare o mare</option>
-                    <option value="fill">Fill/a</option>
-                    <option value="fpolitic">Fill/a polític</option>
-                    <option value="noragendre">Nora o gendre</option>
-                    <option value="sogre">Sogre o sogra</option>
-                    <option value="germans">Germà o germana</option>
-                    <option value="net">Net/a</option>
-                    <option value="cunyao">Cunyat o cunyada</option>
-                    <option value="nebot">Nebot o neboda</option>
-                    <option value="tiets">Tiet o tieta</option>
-                    <option value="besavis">Besavi o besàvia</option>
-                    <option value="besnets">Besnét o besnéta</option>
-                    <option value="cosins">Cosí o cosina</option>
-                    <option value="segons">Cosí/na segon</option>
-                    <option value="tsegons">Tiet/a segon</option>
-                    <option value="bestia">Besoncle o bestia</option>
-                    <option value="altres">Altres</option>
-                </select><br><br>
-                Víctima de violència de gènere: <input type="checkbox" name="vido_1"><br>
-                Tracta d'éssers humans: <input type="checkbox" name="trata_1"><br>
-            </label><br><br>
-
-            <label>
-                Nom del convivent: <input type="text" name="nombre_conviviente_1"><br>
-                DNI / NIE: <input type="text" name="dni_conviviente_1"><br>
-                <label>Edat:<input type="number" id="edad" name="edad" min="16" max="99" required onchange="manejarPreguntas()">
+                <label>Edat:<input type="number" class="edadUC" name="edad[]" required onchange="menorsUC()">
                 </label><br>
                 Relació: <select id="relacion" name="relacion">
                     <option value="" selected disabled>Seleccioni una opció...</option>
@@ -574,6 +471,181 @@
                 Víctima de violència de gènere: <input type="checkbox" name="vido_1"><br>
                 Tracta d'éssers humans: <input type="checkbox" name="trata_1"><br>
             </label><br>
+
+            <div id="acogida_info" class="hidden">
+                <p>Indiqui el règim d'acollida del menor:</p>
+                
+                <label><input type="checkbox" name="regimen_acogida[]" value="adopcio"> Règim de guarda amb finalitats d'adopció.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="acolliment"> Règim d'acolliment familiar permanent.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="compartida"> Custòdia compartida.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="exclusiva"> Custòdia exclusiva.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="tramits"> Tràmits de guàrdia i custòdia.</label>
+            </div><br>
+
+            <label>
+                Nom del convivent: <input type="text" name="nombre_conviviente_1"><br>
+                DNI / NIE: <input type="text" name="dni_conviviente_1"><br>
+                <label>Edat:<input type="number" class="edadUC" name="edad[]" required onchange="menorsUC()">
+                </label><br>
+                Relació: <select id="relacion" name="relacion">
+                    <option value="" selected disabled>Seleccioni una opció...</option>
+                    <option value="conjugue">Cònjugue</option>
+                    <option value="parella">Parella</option>
+                    <option value="paremare">Pare o mare</option>
+                    <option value="fill">Fill/a</option>
+                    <option value="fpolitic">Fill/a polític</option>
+                    <option value="noragendre">Nora o gendre</option>
+                    <option value="sogre">Sogre o sogra</option>
+                    <option value="germans">Germà o germana</option>
+                    <option value="net">Net/a</option>
+                    <option value="cunyao">Cunyat o cunyada</option>
+                    <option value="nebot">Nebot o neboda</option>
+                    <option value="tiets">Tiet o tieta</option>
+                    <option value="besavis">Besavi o besàvia</option>
+                    <option value="besnets">Besnét o besnéta</option>
+                    <option value="cosins">Cosí o cosina</option>
+                    <option value="segons">Cosí/na segon</option>
+                    <option value="tsegons">Tiet/a segon</option>
+                    <option value="bestia">Besoncle o bestia</option>
+                    <option value="altres">Altres</option>
+                </select><br>
+                Víctima de violència de gènere: <input type="checkbox" name="vido_1"><br>
+                Tracta d'éssers humans: <input type="checkbox" name="trata_1"><br>
+            </label><br>
+
+            <div id="acogida_info" class="hidden">
+                <p>Indiqui el règim d'acollida del menor:</p>
+                
+                <label><input type="checkbox" name="regimen_acogida[]" value="adopcio"> Règim de guarda amb finalitats d'adopció.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="acolliment"> Règim d'acolliment familiar permanent.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="compartida"> Custòdia compartida.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="exclusiva"> Custòdia exclusiva.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="tramits"> Tràmits de guàrdia i custòdia.</label>
+            </div>
+
+            <label>
+                Nom del convivent: <input type="text" name="nombre_conviviente_1"><br>
+                DNI / NIE: <input type="text" name="dni_conviviente_1"><br>
+                <label>Edat:<input type="number" class="edadUC" name="edad[]" required onchange="menorsUC()">
+                </label><br>
+                Relació: <select id="relacion" name="relacion">
+                    <option value="" selected disabled>Seleccioni una opció...</option>
+                    <option value="conjugue">Cònjugue</option>
+                    <option value="parella">Parella</option>
+                    <option value="paremare">Pare o mare</option>
+                    <option value="fill">Fill/a</option>
+                    <option value="fpolitic">Fill/a polític</option>
+                    <option value="noragendre">Nora o gendre</option>
+                    <option value="sogre">Sogre o sogra</option>
+                    <option value="germans">Germà o germana</option>
+                    <option value="net">Net/a</option>
+                    <option value="cunyao">Cunyat o cunyada</option>
+                    <option value="nebot">Nebot o neboda</option>
+                    <option value="tiets">Tiet o tieta</option>
+                    <option value="besavis">Besavi o besàvia</option>
+                    <option value="besnets">Besnét o besnéta</option>
+                    <option value="cosins">Cosí o cosina</option>
+                    <option value="segons">Cosí/na segon</option>
+                    <option value="tsegons">Tiet/a segon</option>
+                    <option value="bestia">Besoncle o bestia</option>
+                    <option value="altres">Altres</option>
+                </select><br>
+                Víctima de violència de gènere: <input type="checkbox" name="vido_1"><br>
+                Tracta d'éssers humans: <input type="checkbox" name="trata_1"><br>
+            </label><br>
+
+            <div id="acogida_info" class="hidden">
+                <p>Indiqui el règim d'acollida del menor:</p>
+                
+                <label><input type="checkbox" name="regimen_acogida[]" value="adopcio"> Règim de guarda amb finalitats d'adopció.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="acolliment"> Règim d'acolliment familiar permanent.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="compartida"> Custòdia compartida.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="exclusiva"> Custòdia exclusiva.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="tramits"> Tràmits de guàrdia i custòdia.</label>
+            </div>
+
+            <label>
+                Nom del convivent: <input type="text" name="nombre_conviviente_1"><br>
+                DNI / NIE: <input type="text" name="dni_conviviente_1"><br>
+                <label>Edat:<input type="number" class="edadUC" name="edad[]" required onchange="menorsUC()">
+                </label><br>
+                Relació: <select id="relacion" name="relacion">
+                    <option value="" selected disabled>Seleccioni una opció...</option>
+                    <option value="conjugue">Cònjugue</option>
+                    <option value="parella">Parella</option>
+                    <option value="paremare">Pare o mare</option>
+                    <option value="fill">Fill/a</option>
+                    <option value="fpolitic">Fill/a polític</option>
+                    <option value="noragendre">Nora o gendre</option>
+                    <option value="sogre">Sogre o sogra</option>
+                    <option value="germans">Germà o germana</option>
+                    <option value="net">Net/a</option>
+                    <option value="cunyao">Cunyat o cunyada</option>
+                    <option value="nebot">Nebot o neboda</option>
+                    <option value="tiets">Tiet o tieta</option>
+                    <option value="besavis">Besavi o besàvia</option>
+                    <option value="besnets">Besnét o besnéta</option>
+                    <option value="cosins">Cosí o cosina</option>
+                    <option value="segons">Cosí/na segon</option>
+                    <option value="tsegons">Tiet/a segon</option>
+                    <option value="bestia">Besoncle o bestia</option>
+                    <option value="altres">Altres</option>
+                </select><br>
+                Víctima de violència de gènere: <input type="checkbox" name="vido_1"><br>
+                Tracta d'éssers humans: <input type="checkbox" name="trata_1"><br>
+            </label><br>
+
+            <div id="acogida_info" class="hidden">
+                <p>Indiqui el règim d'acollida del menor:</p>
+                
+                <label><input type="checkbox" name="regimen_acogida[]" value="adopcio"> Règim de guarda amb finalitats d'adopció.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="acolliment"> Règim d'acolliment familiar permanent.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="compartida"> Custòdia compartida.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="exclusiva"> Custòdia exclusiva.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="tramits"> Tràmits de guàrdia i custòdia.</label>
+            </div>
+
+            <label>
+                Nom del convivent: <input type="text" name="nombre_conviviente_1"><br>
+                DNI / NIE: <input type="text" name="dni_conviviente_1"><br>
+                <label>Edat:<input type="number" class="edadUC" name="edad[]" required onchange="menorsUC()">
+                </label><br>
+                Relació: <select id="relacion" name="relacion">
+                    <option value="" selected disabled>Seleccioni una opció...</option>
+                    <option value="conjugue">Cònjugue</option>
+                    <option value="parella">Parella</option>
+                    <option value="paremare">Pare o mare</option>
+                    <option value="fill">Fill/a</option>
+                    <option value="fpolitic">Fill/a polític</option>
+                    <option value="noragendre">Nora o gendre</option>
+                    <option value="sogre">Sogre o sogra</option>
+                    <option value="germans">Germà o germana</option>
+                    <option value="net">Net/a</option>
+                    <option value="cunyao">Cunyat o cunyada</option>
+                    <option value="nebot">Nebot o neboda</option>
+                    <option value="tiets">Tiet o tieta</option>
+                    <option value="besavis">Besavi o besàvia</option>
+                    <option value="besnets">Besnét o besnéta</option>
+                    <option value="cosins">Cosí o cosina</option>
+                    <option value="segons">Cosí/na segon</option>
+                    <option value="tsegons">Tiet/a segon</option>
+                    <option value="bestia">Besoncle o bestia</option>
+                    <option value="altres">Altres</option>
+                </select><br>
+                Víctima de violència de gènere: <input type="checkbox" name="vido_1"><br>
+                Tracta d'éssers humans: <input type="checkbox" name="trata_1"><br>
+            </label><br>
+
+            <div id="acogida_info" class="hidden">
+                <p>Indiqui el règim d'acollida del menor:</p>
+                
+                <label><input type="checkbox" name="regimen_acogida[]" value="adopcio"> Règim de guarda amb finalitats d'adopció.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="acolliment"> Règim d'acolliment familiar permanent.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="compartida"> Custòdia compartida.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="exclusiva"> Custòdia exclusiva.</label>
+                <label><input type="checkbox" name="regimen_acogida[]" value="tramits"> Tràmits de guàrdia i custòdia.</label>
+            </div>
+            
 
             <div id="uc_constituida" name="uc_constituida">
             <label>La seva unitat de convivència dur constituida almenys 6 mesos?</label><br>
@@ -602,7 +674,7 @@
                 <label>
                     <input type="checkbox" name="situacion_exc" value="ninguna"> Cap correspon.
                 </label>
-        </div>
+        </div><br>
 
         <label>
             <input type="checkbox" name="firma">Firma del sol·licitant.
