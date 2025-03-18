@@ -6,6 +6,11 @@ h2 {
 }
 
 body { 
+    background-image: url(/IMVform/Escut\ Gene.png);
+    background-size: cover;
+    background-position:initial;
+    background-repeat: no-repeat;
+    height: 100vh;
     font-family: Arial, sans-serif; 
     margin: 20px; 
 }
@@ -109,6 +114,7 @@ button:hover {
     margin-bottom: 5px; /* Espacio entre los puntos */
     font-size: 14px; /* Ajusta el tamaño del texto si es necesario */
   }
+  
   
 
 .hidden { display: none; }
