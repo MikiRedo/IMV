@@ -29,6 +29,7 @@
             let preguntasUnidad = document.getElementById("convivientes");
             let estadoCivil = document.getElementById("estado_civil").value;
             let fechaMatrimonio = document.getElementById("fecha_matrimonio");
+            let fechaSeparacion = document.getElementById("fecha_separacion");
             let esMujer = document.getElementById("genero_mujer").checked;
             let violenciaGeneroPregunta = document.getElementById("violencia_genero_pregunta");
             let trataPersona = document.getElementById("trata_personas_pregunta");
@@ -91,6 +92,13 @@
                 fechaMatrimonio.classList.remove("hidden");
             } else {
                 fechaMatrimonio.classList.add("hidden");
+            }
+
+            // Mostrar fecha d'inici tràmit en cas que cliqui l aopció
+            if (estadoCivil === "tramite") {
+                fechaSeparacion.classList.remove("hidden");
+            } else {
+                fechaSeparacion.classList.add("hidden");
             }
 
             // Mostrar fecha ingreso en caso clicar si en prision
@@ -227,15 +235,19 @@
                 <option value="separado">Separat/da</option>
                 <option value="divorciado">Divorciat/a</option>
                 <option value="pareja">Parella de fet</option>
-                <option value="separado_hecho">Separat/da de fet</option>
-                <option value="tramite">Iniciant el tràmit de separació*</option>
                 <option value="viudo">Vidu/a</option>
+                <option value="tramite">Iniciant el tràmit de separació, nul·litat, divorci o disolució de la parella de fet</option>
             </select>
         </label>
 
         <div id="fecha_matrimonio" class="hidden">
             <label for="fecha">Seleccioni la data de matrimoni:</label>
             <input type="date" id="fecha_matrimonio_input" name="fecha">
+        </div>
+
+        <div id="fecha_separacion" class="hidden">
+            <label for="separacion">Seleccioni la data d'inici dels tràmits:</label>
+            <input type="date" id="fecha_separacion_input" name="separacion">
         </div><br>
 
         <label><strong>Edat: </strong><input type="number" id="edad" name="edad" min="16" max="99" required onchange="manejarPreguntas()">
@@ -371,8 +383,6 @@
 
         </div><br>
 
-        <!--Demanar el dni dels progenitors en cas que cliqui sí!-->
-
         <label>Marqui la opció que correspongui respecte el seu domicili habitual:
             <select id="vivienda" name="vivienda">
                 <option value="piso">Domicili familiar d'ús exclusiu</option>
@@ -391,7 +401,6 @@
             <label><input type="checkbox" id="mercantil" name="otros" value="mercantilo">Sóc administrador/a de dret d'una societat mercantil.</label>
             <label><input type="checkbox" id="mercantil" name="otros" value="mercantilo">He estat d'alta en el Sistema especial d'empleats de la llar o en el Règim especial de treballadors autònoms en l'any anterior a la presentació d'aquesta sol·licitud.</label>
             <label><input type="checkbox" id="disca" name="otros" value="disca65">Té, vosté o algún dels membres de la seva unitat de convivència, una discapacitat +65% reconeguda fora de Catalunya?</label>
-            <label><input type="checkbox" id="prestacion_perm" name="otros" value="otra_prest">Sóc beneficiari d'una prestació temporal de servei residencial, social, sanitari o sociosanitaria.</label>
             <label><input type="checkbox" id="otro_domicilio" name="otros" value="otro_dom">Visc en un domicili diferent al que estic empadronat.</label>
             <label><input type="checkbox" id="vido_out" name="otros" value="vido_outini">He abandonat el meu domicili habitual per motius relacionats amb violència de gènere, per estar en tràmit de divorci/separació els darrers tres anys o bé per desnonament o causes de força major.
                 <span class="tooltip">ℹ
