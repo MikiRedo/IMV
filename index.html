@@ -43,6 +43,8 @@
             let orfanesaInfo = document.getElementById("orfanesa_info");
             let tutelaMenors = document.querySelector('input[value="menas"]');
             let tutelaShow = document.getElementById("tutela_menor");
+            let city = document.getElementById("otro_domicilio").checked;
+            let municipio = document.getElementById("municipi");
 
                    
             // Ocultar las preguntas específicas de edad al inicio
@@ -106,6 +108,13 @@
                 fechaIngreso.classList.remove("hidden");
             } else {
                 fechaIngreso.classList.add("hidden");
+            }
+
+            // Demanar ciutat en cas d'estar empadronat fora
+            if (city) {
+                municipio.classList.remove("hidden");
+            } else {
+                municipio.classList.add("hidden");
             }
             
             // Mostrar la pregunta de VIDO solo si es mujer y la edad es mayor a 23, la de trata siempre que >23
@@ -186,7 +195,7 @@
 <body>
     <form>
     <h2>Formulari IMV</h2>
-    
+
         <label>DNI / NIE: 
         <span class="tooltip">ℹ
             <span class="tooltip-text">
@@ -402,7 +411,13 @@
             <label><input type="checkbox" id="mercantil" name="otros" value="mercantilo">Sóc administrador/a de dret d'una societat mercantil.</label>
             <label><input type="checkbox" id="mercantil" name="otros" value="mercantilo">He estat d'alta en el Sistema especial d'empleats de la llar o en el Règim especial de treballadors autònoms en l'any anterior a la presentació d'aquesta sol·licitud.</label>
             <label><input type="checkbox" id="disca" name="otros" value="disca65">Té, vosté o algún dels membres de la seva unitat de convivència, una discapacitat +65% reconeguda fora de Catalunya?</label>
-            <label><input type="checkbox" id="otro_domicilio" name="otros" value="otro_dom">Visc en un domicili diferent al que estic empadronat.</label>
+            <label><input type="checkbox" id="otro_domicilio" name="otros" value="otro_dom" onchange="manejarPreguntas()">Visc en un domicili diferent al que estic empadronat.</label>
+           
+            <div id="municipi" class="hidden">
+                <label for="municipi">Afegeixi la població en la que actualment viu:</label>
+                <input type="text" id="municipi">
+            </div>
+            
             <label><input type="checkbox" id="vido_out" name="otros" value="vido_outini">He abandonat el meu domicili habitual per motius relacionats amb violència de gènere, per estar en tràmit de divorci/separació els darrers tres anys o bé per desnonament o causes de força major.
                 <span class="tooltip">ℹ
                     <span class="tooltip-text">
@@ -707,11 +722,14 @@
             </span><br>
         </label><br>
        
-
         <button type="submit">Enviar</button>
     </form>
 </body>
 </html>
+
+
+
+
 
 
 
