@@ -45,8 +45,8 @@
             let tutelaShow = document.getElementById("tutela_menor");
             let city = document.getElementById("otro_domicilio").checked;
             let municipio = document.getElementById("municipi");
-
-                   
+            
+        
             // Ocultar las preguntas específicas de edad al inicio
             document.getElementById("preguntas_16_18").classList.add("hidden");
             document.getElementById("preguntas_18_23").classList.add("hidden");
@@ -135,6 +135,20 @@
                 motivosParentescoBi.classList.add("hidden");
             }
 
+            // Demanar fecha adopcion
+            
+        }
+
+        function adoptionDate() {
+            
+            let adoptionn = document.getElementById("adoption").checked;
+            let adoptionDate = document.getElementById("fecha_ad");
+            
+            if (adoptionn) {
+                adoptionDate.classList.remove("hidden");
+            } else {
+                adoptionDate.classList.add("hidden");
+            }
         }
             
         function menorsUC(){
@@ -684,27 +698,30 @@
         </div><br>
 
         <div id="seis_meses" class="hidden">
-            <label>Marqui la opció que correspongui:</label><br>
+            <label>Marqui la opció que correspongui:</label>
                 <label>
                     <input type="checkbox" name="situacion_exc" value="nacimiento"> Naixement d'un fill.
                 </label>
                 <label>
-                    <input type="checkbox" name="situacion_exc" value="adopcio"> Adopció, guarda amb finalitat d'adopció d'un fill i acolliment familiar permanent.
-                    <label for="fecha">Seleccioni la data d'adopció/acolliment:</label>
-                    <input type="date" id="fecha_adopcion" name="fecha">
+                    <input type="checkbox" id="adoption" name="situacion_exc" value="adopcio" onchange="adoptionDate()"> 
+                    Adopció, guarda amb finalitat d'adopció d'un fill i acolliment familiar permanent.
                 </label>
+                <div id="fecha_ad" class="hidden">
+                    <label for="fecha_adopcion">Seleccioni la data d'acolliment o adopció:</label>
+                    <input type="date" id="fecha_adopcion" name="fecha">
+                </div>
                 <label>
-                    <input type="checkbox" name="situacion_exc" value="reagrupacion"> Algun membre s'ha reagrupat durant els últims 6 mesos.
-                    <span class="tooltip">ℹ
-                        <span class="tooltip-text">
-                            <ul>
-                                <li>Retornat per estudis.</li>
-                                <li>Retornat d'una hospitalització.</li>
-                                <li>Retornat d'un centre penitenciari.</li>
-                                <li>Etc...</li>
-                            </ul>
-                        </span>
-                        </span>
+                <input type="checkbox" name="situacion_exce" value="reagrupacion"> Algun membre s'ha reagrupat durant els últims 6 mesos.
+                <span class="tooltip">ℹ
+                    <span class="tooltip-text">
+                        <ul>
+                            <li>Retornat per estudis.</li>
+                            <li>Retornat d'una hospitalització.</li>
+                            <li>Retornat d'un centre penitenciari.</li>
+                            <li>Etc...</li>
+                        </ul>
+                    </span>
+                    </span>
                 </label>
                 <label>
                     <input type="checkbox" name="situacion_exc" value="ninguna"> Cap correspon.
