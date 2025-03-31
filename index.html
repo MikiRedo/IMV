@@ -219,7 +219,19 @@
             </span>
         </span>
             <input type="text" name="dni" required></label><br>
-        <label>Nom: <input type="text" name="nombre" required></label><br>
+        <label>Nom: 
+        <span class="tooltip">ℹ
+            <span class="tooltip-text">
+                En cas que la petició no es formuli en nom propi sinó a través d'un representant haurà d'adjuntar a aquest formulari el document que acrediti la representació:<br><br>
+                <ul>
+                    <li>Guardador de fet.</li>
+                    <li>Guardador de fet judicial.</li>
+                    <li>Curador.</li>
+                    <li>Defensor judicial.</li>
+                </ul>
+            </span>
+        </span>
+            <input type="text" name="nombre" required></label><br>
         <label>Cognoms: <input type="text" name="apellido" required></label><br>
         <label>Nacionalitat: <input type="text" name="nacionalidad" required></label><br>
         <label>Correu electrònic: <input type="email" name="email" required></label><br>
@@ -242,37 +254,6 @@
             <label><input type="radio" id="genero_mujer" name="genero" value="mujer" onchange="manejarPreguntas()"> Dona</label>
         </fieldset>
         <br>
-
-        <label>Marqui la opció que correspongui:
-            <span class="tooltip">ℹ
-                <span class="tooltip-text">
-                    <label>
-                        Recordi que perquè el matrimoni o la parella de fet sigui considerada vàlida s'ha hagut de formalitzar des de fa almenys dos anys quan no tinguin fills/es comuns. Si tenen fills/es comuns no es necessita formalització. 
-                    </label>
-                </span>
-            </span><br>
-            <select id="estado_civil" name="estado_civil" onchange="manejarPreguntas()">
-                <option value="soltero">Solter/a</option>
-                <option value="casado">Casat/da</option>
-                <option value="casado_hijos">Casat/da amb fill/s comuns</option>
-                <option value="casado_hijos">Casat/da amb fill/s NO comuns</option>
-                <option value="separado">Separat/da</option>
-                <option value="divorciado">Divorciat/a</option>
-                <option value="pareja">Parella de fet</option>
-                <option value="viudo">Vidu/a</option>
-                <option value="tramite">Iniciant el tràmit de separació, nul·litat, divorci o disolució de la parella de fet</option>
-            </select>
-        </label>
-
-        <div id="fecha_matrimonio" class="hidden">
-            <label for="fecha">Seleccioni la data de matrimoni:</label>
-            <input type="date" id="fecha_matrimonio_input" name="fecha">
-        </div>
-
-        <div id="fecha_separacion" class="hidden">
-            <label for="separacion">Seleccioni la data d'inici dels tràmits:</label>
-            <input type="date" id="fecha_separacion_input" name="separacion">
-        </div><br>
 
         <label><strong>Edat: </strong><input type="number" id="edad" name="edad" min="16" max="99" required onchange="manejarPreguntas()">
         </label>
@@ -407,11 +388,43 @@
 
         </div><br>
 
+        <label>Marqui la opció que correspongui:
+            <span class="tooltip">ℹ
+                <span class="tooltip-text">
+                    <label>
+                        Recordi que perquè el matrimoni o la parella de fet sigui considerada vàlida s'ha hagut de formalitzar des de fa almenys dos anys quan no tinguin fills/es comuns. Si tenen fills/es comuns no es necessita formalització. 
+                    </label>
+                </span>
+            </span><br>
+            <select id="estado_civil" name="estado_civil" onchange="manejarPreguntas()">
+                <option value="soltero">Solter/a</option>
+                <option value="casado">Casat/da</option>
+                <option value="casado_hijos">Casat/da amb fill/s comuns</option>
+                <option value="casado_hijos">Casat/da amb fill/s NO comuns</option>
+                <option value="separado">Separat/da</option>
+                <option value="divorciado">Divorciat/a</option>
+                <option value="pareja">Parella de fet</option>
+                <option value="viudo">Vidu/a</option>
+                <option value="tramite">Iniciant el tràmit de separació, nul·litat, divorci o disolució de la parella de fet</option>
+            </select>
+        </label>
+
+        <div id="fecha_matrimonio" class="hidden">
+            <label for="fecha">Seleccioni la data de matrimoni:</label>
+            <input type="date" id="fecha_matrimonio_input" name="fecha">
+        </div>
+
+        <div id="fecha_separacion" class="hidden">
+            <label for="separacion">Seleccioni la data d'inici dels tràmits:</label>
+            <input type="date" id="fecha_separacion_input" name="separacion">
+        </div><br>
+
+
         <label>Marqui la opció que correspongui respecte el seu domicili habitual:
             <span class="tooltip">ℹ
                 <span class="tooltip-text">
                     <label>
-                        En cas de lloguer d'habitació caldrà adjuntar un contracte d'habitació.
+                        En cas de lloguer d'habitació caldrà, adjuntar un contracte d'habitació per tal d'acreditar aquesta com a domicili particular o de la vostre unitat de convivència.
                     </label>
                 </span>
             </span>
@@ -424,43 +437,7 @@
                 <option value="infravivienda">Infrahabitatge (caravana, cova, tenda, cotxe...)</option>
                 <option value="sin_hogar">Sensellarisme</option>
             </select>
-        </label><br><br>
-
-   
-        <fieldset>
-            <legend>Informació adicional:</legend>
-            <label><input type="checkbox" id="mercantil" name="otros" value="mercantilo">Sóc administrador/a de dret d'una societat mercantil.</label>
-            <label><input type="checkbox" id="mercantil" name="otros" value="mercantilo">He estat d'alta en el Sistema especial d'empleats de la llar o en el Règim especial de treballadors autònoms en l'any anterior a la presentació d'aquesta sol·licitud.</label>
-            <label><input type="checkbox" id="disca" name="otros" value="disca65">Té, vosté o algún dels membres de la seva unitat de convivència, una discapacitat +65% reconeguda fora de Catalunya?</label>
-            <label><input type="checkbox" id="otro_domicilio" name="otros" value="otro_dom" onchange="manejarPreguntas()">Visc en un domicili diferent al que estic empadronat.</label>
-           
-            <div id="municipi" class="hidden">
-                <label for="municipi">Afegeixi el municipi en el que actualment viu:</label>
-                <input type="text" id="municipi">
-            </div>
-            
-            <label><input type="checkbox" id="vido_out" name="otros" value="vido_outini">He abandonat el meu domicili habitual per motius relacionats amb violència de gènere, per estar en tràmit de divorci/separació els darrers tres anys o bé per desnonament o causes de força major.
-                <span class="tooltip">ℹ
-                    <span class="tooltip-text">
-                        <label>
-                            Recordi que en cas d'haver abandonat el domicili només haurà d'informar els convivents de la seva UC que hagin marxat amb del domicili amb vosté. En cap cas haurà d'afegir les persones que ja vivien en el domicili al qual s'ha desplaçat.
-                        </label>
-                    </span>
-                </span>
-            </label>
-            <label><input type="checkbox" id="preso" name="otros" value="preso" onchange="manejarPreguntas()">Algun dels membres de la seva unitat familiar, no inclòs en la sol·licitud, està ingressat permanentment en un centre penitenciari o hospitalari.</label>
-        
-            <div id="fecha_ingreso" class="hidden">
-                <label for="fecha_ingreso_input">Seleccioni la data d'ingrés:</label>
-                <input type="date" id="fecha_ingreso_input" name="fecha">
-            </div><br>
-        </fieldset>
-        <br>
-
-        <div id="ingressos">
-            <label>Afegeixi els ingressos anuals de la seva unitat de convivència:</label>
-            <input type="number" id="ingressos_uc" name="ingresos">
-        </div><br>
+        </label><br>
 
         <label>És vosté l'únic beneficiari de la prestació o forma part d'una unitat de convivència?:
             <span class="tooltip">ℹ
@@ -734,6 +711,41 @@
                     <input type="checkbox" name="situacion_exc" value="ninguna"> Cap correspon.
                 </label>
         </div><br>
+
+        <div id="ingressos">
+            <label>Afegeixi els ingressos anuals de la seva unitat de convivència:</label>
+            <input type="number" id="ingressos_uc" name="ingresos">
+        </div><br>
+
+        <fieldset>
+            <legend>Informació adicional:</legend>
+            <label><input type="checkbox" id="mercantil" name="otros" value="mercantilo">Sóc administrador/a de dret d'una societat mercantil.</label>
+            <label><input type="checkbox" id="mercantil" name="otros" value="mercantilo">He estat d'alta en el Sistema especial d'empleats de la llar o en el Règim especial de treballadors autònoms en l'any anterior a la presentació d'aquesta sol·licitud.</label>
+            <label><input type="checkbox" id="disca" name="otros" value="disca65">Té, vosté o algún dels membres de la seva unitat de convivència, una discapacitat +65% reconeguda fora de Catalunya?</label>
+            <label><input type="checkbox" id="otro_domicilio" name="otros" value="otro_dom" onchange="manejarPreguntas()">Visc en un domicili diferent al que estic empadronat.</label>
+           
+            <div id="municipi" class="hidden">
+                <label for="municipi">Afegeixi el municipi en el que actualment viu:</label>
+                <input type="text" id="municipi">
+            </div>
+            
+            <label><input type="checkbox" id="vido_out" name="otros" value="vido_outini">He abandonat el meu domicili habitual per motius relacionats amb violència de gènere, per estar en tràmit de divorci/separació els darrers tres anys o bé per desnonament o causes de força major.
+                <span class="tooltip">ℹ
+                    <span class="tooltip-text">
+                        <label>
+                            Recordi que en cas d'haver abandonat el domicili només haurà d'informar els convivents de la seva UC que hagin marxat amb del domicili amb vosté. En cap cas haurà d'afegir les persones que ja vivien en el domicili al qual s'ha desplaçat.
+                        </label>
+                    </span>
+                </span>
+            </label>
+            <label><input type="checkbox" id="preso" name="otros" value="preso" onchange="manejarPreguntas()">Algun dels membres de la seva unitat familiar, no inclòs en la sol·licitud, està ingressat permanentment en un centre penitenciari o hospitalari.</label>
+        
+            <div id="fecha_ingreso" class="hidden">
+                <label for="fecha_ingreso_input">Seleccioni la data d'ingrés:</label>
+                <input type="date" id="fecha_ingreso_input" name="fecha">
+            </div><br>
+        </fieldset>
+        <br>
 
         <label>
             <input type="checkbox" name="firma">Firma del sol·licitant.
