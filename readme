@@ -7,8 +7,6 @@ Com ho pinto..?
 
 **caldrà mirar el tema dels "checkbox" d'acreditar/no acreditar pels funcionaris**
 
-**Preveure bé el tipo de domicili --> habitació llogada**
-
 **mirar els NIE que a sol·licitud estan prop de caducar per poder detectar en cas que perdin la residència legal**
 
 **demanar tràmit separació a la resta de convivents?**
@@ -17,4 +15,11 @@ Com ho pinto..?
 
 la màquina ho passa si el nom cognom i aniversari està ok, però deixa un missatge de warning pel gestor perque el número és diferent?
 
-Habitació llogada o ús exclosiu d'una part de l'habitatge (soterrani, golfes, altell...)
+
+
+    **Si cliquen al menor algún mmebre presó/hospital: Demanar nom/cognom/DNI, data ingrés i tipo de centre i poder informar algún membre**
+    **afegir un checkbox confirmant que els convivents declarats són els correctes i cap està en presó/hospital**
+
+esquematitzar es matchings i pintar una regla ben definida
+**"i" per explicar custòdia exclusiva**
+
