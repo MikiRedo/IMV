@@ -675,7 +675,9 @@
                 <label><input type="checkbox" name="regimen_acogida_5[]" value="tramits"> Tràmits de guàrdia i custòdia.</label>
                 <label><input type="checkbox" name="regimen_acogida_5[]" value="tramits"> El menor conviu amb només un dels progenitors perquè l'altre està ingressat en centre penitenciari o hospitalari.</label>
             </div>
-            
+
+            <label><input type="checkbox" id="check" name="check" value="check">Confirmo que cap dels membres afegits a la sol·licitud estan en un centre penitenciari o ingressats permanentment a un hospital.</label>
+            <br>            
 
             <div id="uc_constituida" name="uc_constituida">
             <label>La seva unitat de convivència dur constituida almenys 6 mesos?</label><br>
@@ -717,13 +719,15 @@
                 <label>
                     <input type="checkbox" name="situacion_exc" value="ninguna"> Cap correspon.
                 </label>
-        </div><br>
+                
+        </div>
 
         <div id="ingressos">
             <label>Afegeixi els ingressos anuals de la seva unitat de convivència:</label>
             <input type="number" id="ingressos_uc" name="ingresos">
         </div><br>
 
+        
         <fieldset>
             <legend>Informació adicional:</legend>
             <label><input type="checkbox" id="mercantil" name="otros" value="mercantilo">Sóc administrador/a de dret d'una societat mercantil.</label>
@@ -746,6 +750,7 @@
                     </span>
                 </span>
             </label>
+    
             <label><input type="checkbox" id="preso" name="otros" value="preso" onchange="manejarPreguntas()">Algun dels membres de la seva unitat familiar, no inclòs en la sol·licitud, està ingressat actualment en un centre penitenciari o hospitalari.</label>
         
             <div id="fecha_ingreso" class="hidden">
