@@ -30,6 +30,7 @@
             let estadoCivil = document.getElementById("estado_civil").value;
             let fechaMatrimonio = document.getElementById("fecha_matrimonio");
             let fechaSeparacion = document.getElementById("fecha_separacion");
+            let checkAbandono = document.getElementById("check_abandono");
             let esMujer = document.getElementById("genero_mujer").checked;
             let violenciaGeneroPregunta = document.getElementById("violencia_genero_pregunta");
             let trataPersona = document.getElementById("trata_personas_pregunta");
@@ -99,8 +100,10 @@
             // Mostrar fecha d'inici tràmit en cas que cliqui l aopció
             if (estadoCivil === "tramite") {
                 fechaSeparacion.classList.remove("hidden");
+                checkAbandono.classList.remove("hidden");
             } else {
                 fechaSeparacion.classList.add("hidden");
+                checkAbandono.classList.add("hidden");
             }
 
             // Mostrar fecha ingreso en caso clicar si en prision
@@ -420,6 +423,12 @@
         <div id="fecha_separacion" class="hidden">
             <label for="separacion">Seleccioni la data d'inici dels tràmits:</label>
             <input type="date" id="fecha_separacion_input" name="separacion">
+        </div>
+
+        <div id="check_abandono" class="hidden">
+            <label>
+                He hagut d'abandonar el domicili habitual per aquests fets en els últims 3 anys.<input type="checkbox" name="abandono"><br>
+            </label>
         </div><br>
 
 
