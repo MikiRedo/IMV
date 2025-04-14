@@ -31,6 +31,8 @@
             let fechaMatrimonio = document.getElementById("fecha_matrimonio");
             let fechaSeparacion = document.getElementById("fecha_separacion");
             let checkAbandono = document.getElementById("check_abandono");
+            let checkAbandonoVido = document.getElementById("check_abandono_vido");
+            let selectViolenciaGenero = document.getElementById("select_violencia_genero");
             let esMujer = document.getElementById("genero_mujer").checked;
             let violenciaGeneroPregunta = document.getElementById("violencia_genero_pregunta");
             let trataPersona = document.getElementById("trata_personas_pregunta");
@@ -131,6 +133,15 @@
                 trataPersona.classList.add("hidden");
             }
 
+            selectViolenciaGenero.addEventListener("change", () => {
+                if (selectViolenciaGenero.value === "si") {
+                    checkAbandonoVido.classList.remove("hidden");
+                } else {
+                    checkAbandonoVido.classList.add("hidden");
+                }
+            });
+
+
             // Preguntas para BI en caso de coexistir personas CON vínculo en el domicilio
             if (tipoAyuda === "unico" && parentescoSi.checked) {
                 motivosParentescoBi.classList.remove("hidden");
@@ -139,10 +150,6 @@
             }
 
             // Demanar fecha adopcion 
-        }
-
-        function vidoDate() {
-            
         }
 
         function adoptionDate() {
@@ -277,11 +284,16 @@
                         </ul>
                     </span>
                 </span>
-                <select name="violencia_genero">
+                <select id="select_violencia_genero" name="violencia_genero">
                     <option value="no">No</option>
                     <option value="si">Sí</option>  
                 </select>
             </label>
+            <div id="check_abandono_vido" class="hidden">
+                <label>
+                    He hagut d'abandonar el domicili habitual per aquests fets en els últims 3 anys.<input type="checkbox" name="abandono"><br>
+                </label>
+            </div><br>
         </div>
 
         <div id="trata_personas_pregunta" class="hidden">
