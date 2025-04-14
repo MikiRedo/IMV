@@ -135,7 +135,10 @@
                 motivosParentescoBi.classList.add("hidden");
             }
 
-            // Demanar fecha adopcion
+            // Demanar fecha adopcion 
+        }
+
+        function vidoDate() {
             
         }
 
@@ -262,7 +265,7 @@
             <label>Tens reconeguda la condició de violència de gènere?
                 <span class="tooltip">ℹ
                     <span class="tooltip-text">
-                        Per acreditar aquesta condició cal que aporti algun els següents documents: <br>
+                        Per acreditar aquesta condició cal que aporti algun els següents documents i indiqui la data de reconeixement: <br><br>
                         <ul>
                             <li>Sentència condemnatòria per delicte de violència de gènere.</li>
                             <li>Ordre de protecció o resolució judicial .</li>
@@ -303,7 +306,7 @@
                     Tens reconeguda la condició de violència de gènere?
                     <span class="tooltip">ℹ
                         <span class="tooltip-text">
-                            Per acreditar aquesta condició cal que aporti algun els següents documents: <br>
+                            Per acreditar aquesta condició cal que aporti algun els següents documents i indiqui la data de reconeixement: <br><br>
                             <ul>
                                 <li>Sentència condemnatòria per delicte de violència de gènere.</li>
                                 <li>Ordre de protecció o resolució judicial .</li>
@@ -331,7 +334,7 @@
                 Tens reconeguda la condició de violència de gènere?
                 <span class="tooltip">ℹ
                     <span class="tooltip-text">
-                        Per acreditar aquesta condició cal que aporti algun dels següents documents: <br>
+                        Per acreditar aquesta condició cal que aporti algun els següents documents i indiqui la data de reconeixement: <br><br>
                         <ul>
                             <li>Sentència condemnatòria per delicte de violència de gènere.</li>
                             <li>Ordre de protecció o resolució judicial.</li>
@@ -351,7 +354,7 @@
             </label>
             <label>
                 <input type="checkbox" name="condiciones[]" value="penitenciario">
-                Ha estat ingressat "recentment" en un centre penitenciari durant almenys 6 mesos?
+                Ha estat ingressat "recentment" en un centre penitenciari durant almenys 6 mesos de forma continuada?
             </label>
             <label>
                 <input type="checkbox" name="condiciones[]" value="menas" onchange="manejarPreguntas()">
@@ -752,7 +755,13 @@
             </label>
     
             <label><input type="checkbox" id="preso" name="otros" value="preso" onchange="manejarPreguntas()">Algun dels membres de la seva unitat familiar, no inclòs en la sol·licitud, està ingressat actualment en un centre penitenciari o hospitalari.</label>
-        
+            <span class="tooltip">ℹ
+                <span class="tooltip-text">
+                    <label>
+                       ****A priori vem decidir demanar-ho en el requeriment "intel·ligent"****  
+                    </label>
+                </span>
+            </span><br>
             <div id="fecha_ingreso" class="hidden">
                 <label for="fecha_ingreso_input">Seleccioni la data d'ingrés:</label>
                 <input type="date" id="fecha_ingreso_input" name="fecha">
