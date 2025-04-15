@@ -259,7 +259,13 @@
             </span>
         </span>    
             <input type="text" name="compte" required></label><br>
-        <label><strong>Direcció: </strong><input type="text" name="direccion" required></label><br>
+        <label><strong>Direcció: </strong><input type="text" name="direccion" required></label>
+        <label><input type="checkbox" id="otro_domicilio" name="otros" value="otro_dom" onchange="manejarPreguntas()">Visc en un domicili diferent al que estic empadronat.</label>
+           
+        <div id="municipi" class="hidden">
+            <label for="municipi">Afegeixi el municipi en el que actualment viu:</label>
+            <input type="text" id="municipi">
+        </div><br>
         
         <fieldset>
             <legend>Gènere:</legend>
@@ -330,6 +336,11 @@
                             </ul>
                         </span>
                     </span>
+                    <div id="check_abandono_vido_16" class="hidden">
+                        <label>
+                            He hagut d'abandonar el domicili habitual per aquests fets en els últims 3 anys.<input type="checkbox" name="abandono"><br>
+                        </label>
+                    </div><br>
                 </label>
                 <label>
                     <input type="checkbox" name="trata_personas">
@@ -758,12 +769,6 @@
             <label><input type="checkbox" id="mercantil" name="otros" value="mercantilo">He estat d'alta en el Sistema especial d'empleats de la llar o en el Règim especial de treballadors autònoms en l'any anterior a la presentació d'aquesta sol·licitud.</label>
             <label><input type="checkbox" id="disca" name="otros" value="disca65">Algún dels membres de la seva unitat de convivència té una discapacitat reconeguda de 65% o més fora de Catalunya?</label>
             <label><input type="checkbox" id="dependencia" name="otros" value="dependencia">Algún dels membres de la seva unitat de convivència té reconegut un grau 3 de dependència fora de Catalunya? </label>
-            <label><input type="checkbox" id="otro_domicilio" name="otros" value="otro_dom" onchange="manejarPreguntas()">Visc en un domicili diferent al que estic empadronat.</label>
-           
-            <div id="municipi" class="hidden">
-                <label for="municipi">Afegeixi el municipi en el que actualment viu:</label>
-                <input type="text" id="municipi">
-            </div>
             
             <label><input type="checkbox" id="vido_out" name="otros" value="vido_outini">He abandonat el meu domicili habitual per motius relacionats amb violència de gènere, per estar en tràmit de divorci/separació els darrers tres anys o bé per desnonament o causes de força major.
                 <span class="tooltip">ℹ
