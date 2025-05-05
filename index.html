@@ -378,13 +378,21 @@
                 <input type="checkbox" name="condiciones[]" value="hijos">
                 Te fill/s o està vosté a càrrec d'un menor?
             </label>
+            
             <label>
-                <input type="checkbox" name="condiciones[]" value="penitenciario">
-                Ha estat ingressat "recentment" en un centre penitenciari durant almenys 6 mesos de forma continuada?
+                <input type="checkbox" id="preso" name="condiciones[]" value="preso" onchange="manejarPreguntas()">
+                Has estat ingressat/da en un centre penitenciari més de 6 mesos de forma continuada?
             </label>
+            <div id="fecha_ingreso" class="hidden">
+                <label for="fecha_ingreso_input">Seleccioni la data d'ingrés:</label>
+                <input type="date" id="fecha_ingreso_input" name="fecha">
+                <label for="fecha_ingreso_input">Seleccioni la data de sortida:</label>
+                <input type="date" id="fecha_ingreso_input" name="fecha">
+            </div>
+
             <label>
                 <input type="checkbox" name="condiciones[]" value="menas" onchange="manejarPreguntas()">
-                Ha estat sota la tutela d'un centre públic de protecció de menors dins els 3 anys anterirors a cumplir la majoria d'edat?
+                Has estat sota la tutela d'un centre públic de protecció de menors dins els 3 anys anterirors a cumplir la majoria d'edat?
             </label>
             <div id="tutela_menor" class="hidden">
                 <label>Ha estat en un centre dins la comunitat de Catalunya?
@@ -753,12 +761,11 @@
                 </label>
                 <label>
                     <input type="checkbox" name="situacion_exc" value="ninguna"> Cap correspon.
-                </label>
-                
+                </label> 
         </div>
 
         <div id="ingressos">
-            <label>Afegeixi els ingressos anuals de la seva unitat de convivència:</label>
+            <label>Afegeixi els ingressos anuals de la seva unitat de convivència (quantia en brut):</label>
             <input type="number" id="ingressos_uc" name="ingresos">
         </div><br>
 
@@ -779,15 +786,6 @@
                     </span>
                 </span>
             </label>
-    
-            <label><input type="checkbox" id="preso" name="otros" value="preso" onchange="manejarPreguntas()">He estat en un centre penitenciari més de 6 mesos.</label>
-            
-            <div id="fecha_ingreso" class="hidden">
-                <label for="fecha_ingreso_input">Seleccioni la data d'ingrés:</label>
-                <input type="date" id="fecha_ingreso_input" name="fecha">
-                <label for="fecha_ingreso_input">Seleccioni la data de sortida:</label>
-                <input type="date" id="fecha_ingreso_input" name="fecha">
-            </div><br>
         </fieldset>
         <br>
 
