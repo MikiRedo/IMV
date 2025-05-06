@@ -48,6 +48,8 @@
             let tutelaShow = document.getElementById("tutela_menor");
             let city = document.getElementById("otro_domicilio").checked;
             let municipio = document.getElementById("municipi");
+            //let pension = document.getElementById("pensio").checked;
+            //let compensatoria = document.getElementById("compensatoria");
             
         
             // Ocultar las preguntas específicas de edad al inicio
@@ -149,7 +151,12 @@
                 motivosParentescoBi.classList.add("hidden");
             }
 
-            // Demanar fecha adopcion 
+           /* if (pension) {
+                compensatoria.classList.remove("hidden");
+            } else {
+                compensatoria.classList.add("hidden");
+            }*/
+
         }
 
         function adoptionDate() {
@@ -436,13 +443,11 @@
             <select id="estado_civil" name="estado_civil" onchange="manejarPreguntas()">
                 <option value="soltero">Solter/a</option>
                 <option value="casado">Casat/da</option>
-                <option value="casado_hijos">Casat/da amb fill/s comuns</option>
-                <option value="casado_hijos">Casat/da amb fill/s NO comuns</option>
+                <option value="tramite">Casat/da i iniciant el tràmit de separació, nul·litat, divorci o disolució de la parella de fet</option>
                 <option value="separado">Separat/da</option>
                 <option value="divorciado">Divorciat/a</option>
                 <option value="pareja">Parella de fet</option>
                 <option value="viudo">Vidu/a</option>
-                <option value="tramite">Iniciant el tràmit de separació, nul·litat, divorci o disolució de la parella de fet</option>
             </select>
         </label>
 
@@ -765,8 +770,15 @@
         </div>
 
         <div id="ingressos">
-            <label>Afegeixi els ingressos anuals de la seva unitat de convivència (quantia en brut):</label>
+            <label>Afegeixi els ingressos anuals de la seva unitat de convivència:</label>
             <input type="number" id="ingressos_uc" name="ingresos">
+            <span class="tooltip">ℹ
+                <span class="tooltip-text">
+                    <label>
+                        Amb caràcter general, les rendes es computaran pel seu valor brut, excepte les procedents d'activitats econòmiques d'arrendaments immobles o de règims especials que es computaran pel seu rendiment net.
+                    </label>
+                </span>
+            </span>
         </div><br>
 
         
@@ -776,7 +788,7 @@
             <label><input type="checkbox" id="llar" name="otros" value="llar">He estat d'alta en el Sistema especial d'empleats de la llar o en el Règim especial de treballadors autònoms en l'any anterior a la presentació d'aquesta sol·licitud.</label>
             <label><input type="checkbox" id="disca" name="otros" value="disca65">Algún dels membres de la seva unitat de convivència té una discapacitat reconeguda de 65% o més fora de Catalunya?</label>
             <label><input type="checkbox" id="dependencia" name="otros" value="dependencia">Algún dels membres de la seva unitat de convivència té reconegut un grau 3 de dependència fora de Catalunya? </label>
-            <label><input type="checkbox" id="pension" name="otros" value="pensio">Percebo algun ingrés en concepte de pensió compensatòria per separació o divorci.</label>
+            <label><input type="checkbox" id="pension" name="otros" value="pension">Percebo algun ingrés en concepte de pensió compensatòria per separació o divorci.</label>
             <label><input type="checkbox" id="vido_out" name="otros" value="vido_outini">He abandonat el meu domicili habitual per motius relacionats amb violència de gènere, per estar en tràmit de divorci/separació els darrers tres anys o bé per desnonament o causes de força major.
                 <span class="tooltip">ℹ
                     <span class="tooltip-text">
@@ -804,51 +816,3 @@
     </form>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-<!--
-
-<label>¿Existen otras personas CON relación de parentesco viviendo en su domicilio?</label><br>
-        <label>
-            <input type="radio" id="parentesco_si" name="parentesco" value="si" onchange="manejarParentesco()"> Sí
-        </label><br>
-        <label>
-            <input type="radio" id="parentesco_no" name="parentesco" value="no" onchange="manejarParentesco()"> No
-        </label><br>
-        
-        <div id="tipo_vivienda" class="hidden">
-            <br><label>¿Tiene un contrato de habitación?</label><br>
-            <label>
-                <input type="radio" id="no_parentesco" name="sin_parentesco" value="si" onchange="manejarNoParentesco()"> Sí
-            </label><br>
-            <label>
-                <input type="radio" id="nada" name="sin_parentesco" value="no" onchange="manejarNoParentesco()"> No
-            </label><br>
-            <label>
-                <input type="radio" id="nada_informe" name="sin_parentesco" value="no_informe" onchange="manejarNoParentesco()"> No, dispongo de un informe social
-            </label><br>
-        </div>
-
-        <div id="motivos_parentesco_bi" class="hidden">
-            <p>Seleccione la opción que aplique:</p>
-            <label><input type="checkbox" name="motivo_parentesco_bi" value="violencia"> Violencia de género</label><br>
-            <label><input type="checkbox" name="motivo_parentesco_bi" value="deshaucio"> Desahuciado/a</label><br>
-            <label><input type="checkbox" name="motivo_parentesco_bi" value="divorcio"> Inicio trámite divorcio</label><br>
-        </div><br>
-
-        <label>¿Existen otras personas SIN relación de parentesco viviendo en su domicilio?</label><br>
-        <label>
-            <input type="radio" id="no_parentesco" name="no_parentesco" value="si" onchange="manejarNoParentesco()"> Sí
-        </label><br>
-        <label>
-            <input type="radio" id="nada" name="no_parentesco" value="no"> No
-        </label><br><br>
-
--->

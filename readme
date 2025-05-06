@@ -1,10 +1,3 @@
-si esta viudo, no pot haver un coyugue al grau de parentiu
-si esta separada, no pot haver un conyugue al grau de parentiu
-etc...
-Com ho pinto..?
-
-**cal preguntar a tothom (casat) si estan en tràmit de divorci?** Segurament millor en requeriment o preguntar-ho com a "tipus".
-
 **caldrà mirar el tema dels "checkbox" d'acreditar/no acreditar pels funcionaris**
 
 **mirar els NIE que a sol·licitud estan prop de caducar per poder detectar en cas que perdin la residència legal**
@@ -13,15 +6,6 @@ Com ho pinto..?
 
 **que fem amb les persones que entren via DNI, tenien NIE fa res, i no ha clicat que s'acaba de nacionalitzar**
 
-la màquina ho passa si el nom cognom i aniversari està ok, però deixa un missatge de warning pel gestor perque el número és diferent?
-
-
-    **Si cliquen al menor algún mmebre presó/hospital: Demanar nom/cognom/DNI, data ingrés i tipo de centre i poder informar algún membre**
-    **afegir un checkbox confirmant que els convivents declarats són els correctes i cap està en presó/hospital**
-
-
-**"i" per explicar custòdia exclusiva**
-
 
 **afegir difunt com a excepció junt amb preso/hospital**
 **afegir el no-binari (i relacionaro amb VIDO)**
@@ -29,3 +13,7 @@ la màquina ho passa si el nom cognom i aniversari està ok, però deixa un miss
     Perceps algun ingrés en concepte de pensió compensatòria per separació o divorci? Camp per informar sí/no 
 
     Si respon que sí: camp per informar l’import mensual 
+
+    "casat i iniciant tràmit"
+
+**tota la documentació afegida es podrà acreditar pels funcionaris (checkbox)**
