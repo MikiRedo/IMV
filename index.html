@@ -6,7 +6,7 @@
     <title>Formulari IMV</title>
     <link rel="stylesheet" href="styles.css">
     <script>
-        
+
         function mostrarUnidadConvivencia() {
             let unidad = document.getElementById("tipo_ayuda").value;
             document.getElementById("convivientes").classList.toggle("hidden", unidad !== "convivencia");
@@ -48,9 +48,7 @@
             let tutelaShow = document.getElementById("tutela_menor");
             let city = document.getElementById("otro_domicilio").checked;
             let municipio = document.getElementById("municipi");
-            //let pension = document.getElementById("pensio").checked;
-            //let compensatoria = document.getElementById("compensatoria");
-            
+
         
             // Ocultar las preguntas específicas de edad al inicio
             document.getElementById("preguntas_16_18").classList.add("hidden");
@@ -151,12 +149,6 @@
                 motivosParentescoBi.classList.add("hidden");
             }
 
-           /* if (pension) {
-                compensatoria.classList.remove("hidden");
-            } else {
-                compensatoria.classList.add("hidden");
-            }*/
-
         }
 
         function adoptionDate() {
@@ -168,6 +160,17 @@
                 adoptionDate.classList.remove("hidden");
             } else {
                 adoptionDate.classList.add("hidden");
+            }
+        }
+
+        function moneyPension() {
+            let pensionComp = document.getElementById("pension").checked;
+            let compensatoria = document.getElementById("compensatoria");
+
+            if (pensionComp) {
+                compensatoria.classList.remove("hidden");
+            } else {
+                compensatoria.classList.add("hidden");
             }
         }
             
@@ -527,7 +530,7 @@
                     <option value="fill">Fill/a</option>
                     <option value="fpolitic">Fill/a polític</option>
                     <option value="noragendre">Nora o gendre</option>
-                    <option value="sogre">Sogre o sogra</option>
+                    <option value="sogre">Sogre/a</option>
                     <option value="germans">Germà/na</option>
                     <option value="net">Net/a</option>
                     <option value="cunyao">Cunyat/da</option>
@@ -569,7 +572,7 @@
                     <option value="fill">Fill/a</option>
                     <option value="fpolitic">Fill/a polític</option>
                     <option value="noragendre">Nora o gendre</option>
-                    <option value="sogre">Sogre o sogra</option>
+                    <option value="sogre">Sogre/a</option>
                     <option value="germans">Germà/na</option>
                     <option value="net">Net/a</option>
                     <option value="cunyao">Cunyat/da</option>
@@ -611,7 +614,7 @@
                     <option value="fill">Fill/a</option>
                     <option value="fpolitic">Fill/a polític</option>
                     <option value="noragendre">Nora o gendre</option>
-                    <option value="sogre">Sogre o sogra</option>
+                    <option value="sogre">Sogre/a</option>
                     <option value="germans">Germà/na</option>
                     <option value="net">Net/a</option>
                     <option value="cunyao">Cunyat/da</option>
@@ -653,7 +656,7 @@
                     <option value="fill">Fill/a</option>
                     <option value="fpolitic">Fill/a polític</option>
                     <option value="noragendre">Nora o gendre</option>
-                    <option value="sogre">Sogre o sogra</option>
+                    <option value="sogre">Sogre/a</option>
                     <option value="germans">Germà/na</option>
                     <option value="net">Net/a</option>
                     <option value="cunyao">Cunyat/da</option>
@@ -695,7 +698,7 @@
                     <option value="fill">Fill/a</option>
                     <option value="fpolitic">Fill/a polític</option>
                     <option value="noragendre">Nora o gendre</option>
-                    <option value="sogre">Sogre o sogra</option>
+                    <option value="sogre">Sogre/a</option>
                     <option value="germans">Germà/na</option>
                     <option value="net">Net/a</option>
                     <option value="cunyao">Cunyat/da</option>
@@ -788,7 +791,13 @@
             <label><input type="checkbox" id="llar" name="otros" value="llar">He estat d'alta en el Sistema especial d'empleats de la llar o en el Règim especial de treballadors autònoms en l'any anterior a la presentació d'aquesta sol·licitud.</label>
             <label><input type="checkbox" id="disca" name="otros" value="disca65">Algún dels membres de la seva unitat de convivència té una discapacitat reconeguda de 65% o més fora de Catalunya?</label>
             <label><input type="checkbox" id="dependencia" name="otros" value="dependencia">Algún dels membres de la seva unitat de convivència té reconegut un grau 3 de dependència fora de Catalunya? </label>
-            <label><input type="checkbox" id="pension" name="otros" value="pension">Percebo algun ingrés en concepte de pensió compensatòria per separació o divorci.</label>
+            <label><input type="checkbox" id="pension" name="otros" value="pensione" onchange="moneyPension()">Percebo algun ingrés en concepte de pensió compensatòria per separació o divorci.</label>
+            
+                <label id="compensatoria" class="hidden">
+                    <label>Afegeixi la quantia mensual:</label>
+                    <input type="number" id="compensatoria" name="ingresos">
+                </label>
+            
             <label><input type="checkbox" id="vido_out" name="otros" value="vido_outini">He abandonat el meu domicili habitual per motius relacionats amb violència de gènere, per estar en tràmit de divorci/separació els darrers tres anys o bé per desnonament o causes de força major.
                 <span class="tooltip">ℹ
                     <span class="tooltip-text">
