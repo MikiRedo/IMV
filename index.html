@@ -34,6 +34,7 @@
             let checkAbandonoVido = document.getElementById("check_abandono_vido");
             let selectViolenciaGenero = document.getElementById("select_violencia_genero");
             let esMujer = document.getElementById("genero_mujer").checked;
+            let esNobinario = document.getElementById("genero_nobinario").checked;
             let violenciaGeneroPregunta = document.getElementById("violencia_genero_pregunta");
             let trataPersona = document.getElementById("trata_personas_pregunta");
             let motivosParentescoBi = document.getElementById("motivos_parentesco_bi");
@@ -123,10 +124,10 @@
             }
             
             // Mostrar la pregunta de VIDO solo si es mujer y la edad es mayor a 23, la de trata siempre que >23
-            if (esMujer && edad >= 23) {
+            if (esMujer || esNobinario && edad >= 23) {
                 violenciaGeneroPregunta.classList.remove("hidden");
                 trataPersona.classList.remove("hidden");
-            } else if (!esMujer && edad >= 23) {  
+            } else if (!esMujer || !esNobinario && edad >= 23) {  
                 trataPersona.classList.remove("hidden");
             } else {
                 violenciaGeneroPregunta.classList.add("hidden");
@@ -281,6 +282,8 @@
             <legend>Gènere:</legend>
             <label><input type="radio" id="genero_hombre" name="genero" value="hombre" onchange="manejarPreguntas()"> Home</label>
             <label><input type="radio" id="genero_mujer" name="genero" value="mujer" onchange="manejarPreguntas()"> Dona</label>
+            <label><input type="radio" id="genero_nobinario" name="genero" value="nobinario" onchange="manejarPreguntas()"> No binari</label>
+
         </fieldset>
         <br>
 
