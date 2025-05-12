@@ -124,10 +124,10 @@
             }
             
             // Mostrar la pregunta de VIDO solo si es mujer y la edad es mayor a 23, la de trata siempre que >23
-            if (esMujer || esNobinario && edad >= 23) {
+            if ((esMujer || esNobinario) && edad >= 23) {
                 violenciaGeneroPregunta.classList.remove("hidden");
                 trataPersona.classList.remove("hidden");
-            } else if (!esMujer || !esNobinario && edad >= 23) {  
+            } else if ((!esMujer || !esNobinario) && edad >= 23) {  
                 trataPersona.classList.remove("hidden");
             } else {
                 violenciaGeneroPregunta.classList.add("hidden");
