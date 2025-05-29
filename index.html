@@ -185,6 +185,17 @@
                 compensatoria.classList.add("hidden");
             }
         }
+
+        function moneyPayPension() {
+            let pensionComp = document.getElementById("pensionPay").checked;
+            let compensatoria = document.getElementById("compensatorias");
+
+            if (pensionComp) {
+                compensatoria.classList.remove("hidden");
+            } else {
+                compensatoria.classList.add("hidden");
+            }
+        }
             
         function menorsUC(){
             
@@ -743,7 +754,7 @@
                 <label><input type="checkbox" name="regimen_acogida_5[]" value="compartida"> Custòdia compartida.</label>
                 <label><input type="checkbox" name="regimen_acogida_5[]" value="exclusiva"> Custòdia exclusiva.</label>
                 <label><input type="checkbox" name="regimen_acogida_5[]" value="tramits"> Tràmits de guàrdia i custòdia.</label>
-                <label><input type="checkbox" name="regimen_acogida_5[]" value="tramits"> El menor conviu amb només un dels progenitors perquè l'altre està ingressat en centre penitenciari o hospitalari.</label>
+                <label><input type="checkbox" name="regimen_acogida_5[]" value="tramits"> El menor conviu amb només un dels progenitors perquè l'altre està ingressat en centre penitenciari, hospitalari o és difunt.</label>
             </div>
 
             <label><input type="checkbox" id="check" name="check" value="check"> Declaro, sota la meva responsabilitat, que cap dels membres informats/des a la sol·licitud està ingressat/da actualment en un Centre Penitenciari o es troba ingressat/da en un Centre Hospitalari des de fa més d'1 any.</label>
@@ -822,6 +833,13 @@
                 <label id="compensatoria" class="hidden">
                     <label>Afegeixi la quantia mensual:</label>
                     <input type="number" id="compensatoria" name="ingresos">
+                </label>
+
+            <label><input type="checkbox" id="pensionPay" name="otros" value="pensione" onchange="moneyPayPension()">Pago algun import en concepte de pensió compensatòria per separació o divorci.</label>
+            
+                <label id="compensatorias" class="hidden">
+                    <label>Afegeixi la quantia mensual:</label>
+                    <input type="number" id="compensatorias" name="ingresos">
                 </label>
             
             <label><input type="checkbox" id="vido_out" name="otros" value="vido_outini">He abandonat el meu domicili habitual per desnonament o bé per causes de força major.
