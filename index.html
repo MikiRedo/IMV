@@ -547,6 +547,11 @@
             <label>
                 Nom del convivent: <input type="text" name="nombre_conviviente_1"><br>
                 DNI / NIE: <input type="text" name="dni_conviviente_1"><br>
+                
+            <label><input type="radio" id="genero_hombre" name="genero" value="hombre">Home</label>
+            <label><input type="radio" id="genero_mujer" name="genero" value="mujer"> Dona</label>
+            <label><input type="radio" id="genero_nobinario" name="genero" value="nobinario"> No binari</label><br>
+
                 <label>Edat:<input type="number" class="edadUC" name="edad[]" required onchange="menorsUC()">
                 </label><br>
                 Relació: <select id="relacion" name="relacion">
@@ -570,7 +575,9 @@
                     <option value="segons">Cosí/na segon</option>
                     <option value="tsegons">Tiet/a segon</option>
                     <option value="bestia">Besoncle o bestia</option>
-                    <option value="altres">Altres</option>
+                    <option value="acollidor">Acollidor/a</option>
+                    <option value="tutor">Tutor/a</option>
+                    <option value="altres">Sense relació de parentiu</option>
                 </select><br>
                 Víctima de violència de gènere: <input type="checkbox" name="vido_1"><br>
                 Tracta d'éssers humans: <input type="checkbox" name="trata_1"><br>
@@ -590,6 +597,10 @@
             <label>
                 Nom del convivent: <input type="text" name="nombre_conviviente_2"><br>
                 DNI / NIE: <input type="text" name="dni_conviviente_2"><br>
+                <label><input type="radio" id="genero_hombre" name="genero" value="hombre">Home</label>
+                <label><input type="radio" id="genero_mujer" name="genero" value="mujer"> Dona</label>
+                <label><input type="radio" id="genero_nobinario" name="genero" value="nobinario"> No binari</label>
+                
                 <label>Edat:<input type="number" class="edadUC" name="edad[]" required onchange="menorsUC()">
                 </label><br>
                 Relació: <select id="relacion" name="relacion">
@@ -613,7 +624,9 @@
                     <option value="segons">Cosí/na segon</option>
                     <option value="tsegons">Tiet/a segon</option>
                     <option value="bestia">Besoncle o bestia</option>
-                    <option value="altres">Altres</option>
+                    <option value="acollidor">Acollidor/a</option>
+                    <option value="tutor">Tutor/a</option>
+                    <option value="altres">Sense relació de parentiu</option>
                 </select><br>
                 Víctima de violència de gènere: <input type="checkbox" name="vido_2"><br>
                 Tracta d'éssers humans: <input type="checkbox" name="trata_2"><br>
@@ -656,7 +669,9 @@
                     <option value="segons">Cosí/na segon</option>
                     <option value="tsegons">Tiet/a segon</option>
                     <option value="bestia">Besoncle o bestia</option>
-                    <option value="altres">Altres</option>
+                    <option value="acollidor">Acollidor/a</option>
+                    <option value="tutor">Tutor/a</option>
+                    <option value="altres">Sense relació de parentiu</option>
                 </select><br>
                 Víctima de violència de gènere: <input type="checkbox" name="vido_3"><br>
                 Tracta d'éssers humans: <input type="checkbox" name="trata_3"><br>
@@ -699,7 +714,9 @@
                     <option value="segons">Cosí/na segon</option>
                     <option value="tsegons">Tiet/a segon</option>
                     <option value="bestia">Besoncle o bestia</option>
-                    <option value="altres">Altres</option>
+                    <option value="acollidor">Acollidor/a</option>
+                    <option value="tutor">Tutor/a</option>
+                    <option value="altres">Sense relació de parentiu</option>
                 </select><br>
                 Víctima de violència de gènere: <input type="checkbox" name="vido_4"><br>
                 Tracta d'éssers humans: <input type="checkbox" name="trata_4"><br>
@@ -742,7 +759,9 @@
                     <option value="segons">Cosí/na segon</option>
                     <option value="tsegons">Tiet/a segon</option>
                     <option value="bestia">Besoncle o bestia</option>
-                    <option value="altres">Altres</option>
+                    <option value="acollidor">Acollidor/a</option>
+                    <option value="tutor">Tutor/a</option>
+                    <option value="altres">Sense relació de parentiu</option>
                 </select><br>
                 Víctima de violència de gènere: <input type="checkbox" name="vido_5"><br>
                 Tracta d'éssers humans: <input type="checkbox" name="trata_5"><br>
@@ -787,7 +806,7 @@
                     <input type="date" id="fecha_adopcion" name="fecha">
                 </div>
                 <label>
-                <input type="checkbox" name="situacion_exce" value="reagrupacion"> Algun membre s'ha reagrupat durant els últims 6 mesos.
+                <input type="checkbox" name="situacion_exce" value="reagrupacion">Algun membre s'ha reagrupat durant els últims 6 mesos.
                 <span class="tooltip">ℹ
                     <span class="tooltip-text">
                         <ul>
@@ -819,7 +838,7 @@
         
         <fieldset>
             <legend>Informació adicional:</legend>
-            <label><input type="checkbox" id="mercantil" name="otros" value="mercantilo">Sóc administrador/a de dret d'una societat mercantil.</label>
+            <label><input type="checkbox" id="mercantil" name="otros" value="mercantilo">Actualment o durant l'any anterior, alguna persona de la unitat de convivència ha estat administradora de dret d'una societat mercantil.</label>
             <label><input type="checkbox" id="llar" name="otros" value="llar">He estat d'alta en el Sistema especial d'empleats de la llar o en el Règim especial de treballadors autònoms en l'any anterior a la presentació d'aquesta sol·licitud.</label>
             <label><input type="checkbox" id="disca" name="otros" value="disca65">Algún dels membres de la seva unitat de convivència té una discapacitat reconeguda de 65% o més fora de Catalunya?</label>
             <label><input type="checkbox" id="serveissocials" name="otros" value="ssocials" onchange="seguimentSS()">Estic en seguiment per part de serveis socials</label>
