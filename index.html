@@ -249,6 +249,17 @@
             }
         }
 
+        function oldNIE() {
+            let oldNIE = document.getElementById("old_NIE").checked;
+            let NIEQuestion = document.getElementById("NIE");
+
+            if (oldNIE) {
+                NIEQuestion.classList.remove("hidden");
+            } else {
+                NIEQuestion.classList.add("hidden");
+            }
+        }
+
     </script>
 </head>
 
@@ -256,7 +267,7 @@
     <form>
     <h2>Formulari IMV</h2>
 
-        <label>DNI / NIE: (fer pregunta NIE 2 anys anteriorment)
+        <label>DNI / NIE:
         <span class="tooltip">ℹ
             <span class="tooltip-text">
                 <label>
@@ -265,8 +276,14 @@
             </span>
         </span>
             <input type="text" name="dni" required>
-            <input type="checkbox" name="old_nie">En els últims 2 anys he tingut un NIE.
+            <input type="checkbox" id="old_NIE" name="old_nie" onchange="oldNIE()">En els últims 2 anys he tingut un NIE.
+           
+        <div id="NIE" class="hidden">
+            <label for="NIE">Indica el número de NIE anterior</label>
+            <input type="text" id="NIE">
+        </div>
         </label><br>
+
         <label>Nom: 
         <span class="tooltip">ℹ
             <span class="tooltip-text">
@@ -280,6 +297,7 @@
             </span>
         </span>
             <input type="text" name="nombre" required></label><br>
+
         <label>Cognoms: <input type="text" name="apellido" required></label><br>
         <label>Nacionalitat: <input type="text" name="nacionalidad" required></label><br>
         <label>Correu electrònic: <input type="email" name="email" required></label><br>
@@ -294,6 +312,7 @@
             </span>
         </span>    
             <input type="text" name="compte" required></label><br>
+
         <label><strong>Direcció: </strong><input type="text" name="direccion" required></label>
         <label><input type="checkbox" id="otro_domicilio" name="otros" value="otro_dom" onchange="manejarPreguntas()">Visc en un domicili diferent al que estic empadronat.</label>
            
